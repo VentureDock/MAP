@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VentureDock — Email Templates</title>
+<style>
+  @font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Light.ttf') format('truetype'); font-weight:300; }
+  @font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight:600; }
+  @font-face { font-family:'SourceSerif'; src:url('assets/fonts/SourceSerifVariable-Roman.otf') format('opentype'); font-weight:100 900; }
+  :root {
+    --navy:#2E3A4F; --ice:#F2F4F8; --light:#F2F4F8;
+    --gold:#FFECD4; --gray:#64748B; --dkgray:#2E3A4F;
+    --border:#E4E8EF; --teal:#3B706A; --grey:#B0B3B8;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Poppins',system-ui,sans-serif; font-weight:300; background:#f5f5f5; color:var(--dkgray); }
+  h1 { font-size:1.6rem; color:var(--navy); }
+
+  /* ── Index sidebar ── */
+  .layout { display:grid; grid-template-columns:280px 1fr; min-height:100vh; }
+  .sidebar { background:var(--navy); padding:2rem 1.5rem; position:sticky; top:0; height:100vh; overflow-y:auto; }
+  .sidebar .logo { display:block; margin-bottom:.3rem; }
+  .sidebar .logo img { height:24px; display:block; }
+  .sidebar p { color:var(--ice); font-size:.78rem; opacity:.6; margin-bottom:1.8rem; }
+  .sidebar h3 { color:var(--ice); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; margin-bottom:.8rem; opacity:.5; }
+  .sidebar ul { list-style:none; margin-bottom:1.8rem; }
+  .sidebar ul li { margin-bottom:.3rem; }
+  .sidebar ul li a { color:var(--ice); font-size:.85rem; text-decoration:none; opacity:.75; padding:.35rem .6rem; border-radius:6px; display:block; transition:background .15s,opacity .15s; }
+  .sidebar ul li a:hover { background:rgba(202,220,252,.12); opacity:1; }
+
+  /* ── Main content ── */
+  .main { padding:3rem; }
+  .main > h1 { margin-bottom:.4rem; }
+  .main > .subtitle { color:var(--gray); font-size:.95rem; margin-bottom:2.5rem; }
+
+  /* ── Email card ── */
+  .email-card { background:#fff; border-radius:12px; border:1px solid var(--border); margin-bottom:3rem; overflow:hidden; box-shadow:0 2px 12px rgba(30,39,97,.07); }
+  .card-header { background:var(--light); border-bottom:1px solid var(--border); padding:1.2rem 1.8rem; display:flex; justify-content:space-between; align-items:center; }
+  .card-header h2 { font-size:1rem; color:var(--navy); font-weight:700; }
+  .card-header .email-type { font-size:.75rem; background:var(--navy); color:var(--ice); padding:.25rem .7rem; border-radius:20px; font-weight:700; letter-spacing:.04em; }
+  .meta { padding:.8rem 1.8rem; background:#fafbff; border-bottom:1px solid var(--border); font-size:.82rem; color:var(--gray); }
+  .meta span { font-weight:700; color:var(--navy); }
+  .email-preview { padding:0 1.8rem 1.8rem; }
+  .copy-btn { margin-top:1rem; float:right; background:var(--navy); color:#fff; border:none; padding:.5rem 1.2rem; border-radius:6px; font-size:.8rem; cursor:pointer; }
+
+  /* ── Email HTML preview ── */
+  .email-body { background:#fff; border:1px solid #e0e0e0; border-radius:8px; overflow:hidden; margin-top:1rem; }
+
+  @media(max-width:760px) {
+    .layout { grid-template-columns:1fr; }
+    .sidebar { position:static; height:auto; }
+    .main { padding:1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- ── SIDEBAR ── -->
+<div class="sidebar">
+  <div class="logo"><img src="assets/logo-white.png" alt="Venture Dock"></div>
+  <p>Email Templates · Market Access Program</p>
+
+  <h3>Core Emails</h3>
+  <ul>
+    <li><a href="#e1">1. Application Confirmation</a></li>
+    <li><a href="#e2">2. Application Accepted</a></li>
+    <li><a href="#e3">3. Program Welcome</a></li>
+    <li><a href="#e4">4. Session Reminder</a></li>
+    <li><a href="#e5">5. Post-Program Follow-Up</a></li>
+  </ul>
+
+  <h3>Nurture Sequence</h3>
+  <ul>
+    <li><a href="#n1">N1. Visited, Didn't Apply</a></li>
+    <li><a href="#n2">N2. Value Email (Day 5)</a></li>
+    <li><a href="#n3">N3. Last Chance (Day 12)</a></li>
+  </ul>
+</div>
+
+<!-- ── MAIN ── -->
+<div class="main">
+  <h1>VentureDock Email Templates</h1>
+  <p class="subtitle">Copy-ready HTML email templates. Replace <code>{{VARIABLES}}</code> with your email service (Mailchimp, HubSpot, ConvertKit, etc.) merge tags.</p>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- E1: APPLICATION CONFIRMATION                    -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="email-card" id="e1">
+    <div class="card-header">
+      <h2>Email 1 — Application Confirmation</h2>
+      <span class="email-type">Transactional</span>
+    </div>
+    <div class="meta">
+      <span>To:</span> {{APPLICANT_EMAIL}} &nbsp;|&nbsp;
+      <span>Subject:</span> We received your VentureDock application, {{FIRST_NAME}} &nbsp;|&nbsp;
+      <span>Send:</span> Immediately on submission
+    </div>
+    <div class="email-preview">
+      <div class="email-body">
+        <table width="100%" cellpadding="0" cellspacing="0" style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff">
+          <!-- Header -->
+          <tr><td style="background:#2E3A4F;padding:28px 40px">
+            <p style="color:#B0B3B8;font-size:20px;font-weight:800;margin:0;letter-spacing:.04em">VentureDock</p>
+            <p style="color:#B0B3B8;font-size:12px;margin:4px 0 0;opacity:.6">US Market Entry Launchpad</p>
+          </td></tr>
+          <!-- Body -->
+          <tr><td style="padding:40px 40px 32px">
+            <p style="font-size:22px;font-weight:800;color:#3B706A;margin:0 0 16px">Application received ✓</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 12px">Hi {{FIRST_NAME}},</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">Thank you for applying to <strong>VentureDock Market Access Program</strong>. We received your application and our team will review it personally.</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 28px">Here's what happens next:</p>
+            <!-- Steps -->
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr><td style="background:#F2F4F8;border-radius:10px;padding:20px 24px">
+                <p style="margin:0 0 14px;font-size:13px;color:#3B706A;font-weight:700">📋 WHAT TO EXPECT</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#444;line-height:1.6">
+                  <strong style="color:#3B706A">Step 1 (now):</strong> Confirmation email sent ✓</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#444;line-height:1.6">
+                  <strong style="color:#3B706A">Step 2 (3–5 days):</strong> Personal review of your application</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#444;line-height:1.6">
+                  <strong style="color:#3B706A">Step 3 (if shortlisted):</strong> 20-minute video call with our team</p>
+                <p style="margin:0;font-size:14px;color:#444;line-height:1.6">
+                  <strong style="color:#3B706A">Step 4 (within 10 days):</strong> Final decision communicated</p>
+              </td></tr>
+            </table>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:28px 0 8px">While you wait, here are a few things worth thinking about:</p>
+            <ul style="margin:0 0 28px;padding-left:20px;color:#444;font-size:14px;line-height:1.9">
+              <li>Who are your top 3 US target customers by name?</li>
+              <li>What's your one-line positioning statement for a US buyer?</li>
+              <li>What's your monthly burn and runway right now?</li>
+            </ul>
+            <p style="font-size:14px;color:#666;line-height:1.7;margin:0">Questions? Reply directly to this email or reach us at <a href="mailto:hello@venturedock.com" style="color:#3B706A">hello@venturedock.com</a></p>
+          </td></tr>
+          <!-- Footer -->
+          <tr><td style="background:#F2F4F8;padding:20px 40px;border-top:1px solid #E4E8EF">
+            <p style="font-size:12px;color:#888;margin:0;line-height:1.6">VentureDock · Global Innovation Program · <a href="#" style="color:#3B706A">Unsubscribe</a></p>
+          </td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- E2: ACCEPTANCE                                  -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="email-card" id="e2">
+    <div class="card-header">
+      <h2>Email 2 — Application Accepted</h2>
+      <span class="email-type">Transactional</span>
+    </div>
+    <div class="meta">
+      <span>To:</span> {{APPLICANT_EMAIL}} &nbsp;|&nbsp;
+      <span>Subject:</span> You're in — VentureDock Market Access Program 🎉 &nbsp;|&nbsp;
+      <span>Send:</span> On acceptance decision
+    </div>
+    <div class="email-preview">
+      <div class="email-body">
+        <table width="100%" cellpadding="0" cellspacing="0" style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff">
+          <tr><td style="background:#2E3A4F;padding:28px 40px 20px">
+            <p style="color:#B0B3B8;font-size:20px;font-weight:800;margin:0">VentureDock</p>
+          </td></tr>
+          <tr><td style="background:#3B706A;padding:20px 40px">
+            <p style="color:#3B706A;font-size:24px;font-weight:800;margin:0">You're accepted, {{FIRST_NAME}}! 🎉</p>
+            <p style="color:#3B706A;font-size:14px;margin:6px 0 0;opacity:.8">VentureDock Market Access Program · US Market Entry Launchpad</p>
+          </td></tr>
+          <tr><td style="padding:40px 40px 32px">
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">Congratulations — after reviewing your application, we're excited to offer you a seat in <strong>VentureDock Market Access Program</strong>.</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 28px">Here's everything you need to know to get started:</p>
+
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px">
+              <tr>
+                <td style="background:#F2F4F8;border-radius:10px;padding:20px 24px">
+                  <p style="margin:0 0 12px;font-size:13px;color:#3B706A;font-weight:700;letter-spacing:.06em">📅 YOUR PROGRAM AT A GLANCE</p>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr><td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#3B706A;font-weight:700;width:120px">Format</td><td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#444">6 virtual sessions · 90 min each · biweekly</td></tr>
+                    <tr><td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#3B706A;font-weight:700">Start Date</td><td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#444">{{START_DATE}}</td></tr>
+                    <tr><td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#3B706A;font-weight:700">Session Time</td><td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#444">{{SESSION_TIME}} ({{TIMEZONE}})</td></tr>
+                    <tr><td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#3B706A;font-weight:700">Platform</td><td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#444">Zoom (link in calendar invite)</td></tr>
+                    <tr><td style="padding:5px 0;font-size:13px;color:#3B706A;font-weight:700">Demo Day</td><td style="padding:5px 0;font-size:13px;color:#444">{{DEMO_DAY_DATE}}</td></tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <p style="font-size:15px;font-weight:700;color:#3B706A;margin:0 0 12px">Your next steps (complete within 72 hours):</p>
+            <ol style="margin:0 0 28px;padding-left:20px;color:#444;font-size:14px;line-height:2">
+              <li>Confirm your seat by replying to this email with "I'm in"</li>
+              <li>Complete payment at: <a href="{{PAYMENT_LINK}}" style="color:#3B706A">{{PAYMENT_LINK}}</a></li>
+              <li>Join the cohort WhatsApp/Slack channel: <a href="{{COMMUNITY_LINK}}" style="color:#3B706A">{{COMMUNITY_LINK}}</a></li>
+              <li>Download the Founder Workbook (attached)</li>
+              <li>Complete the pre-program survey: <a href="{{SURVEY_LINK}}" style="color:#3B706A">{{SURVEY_LINK}}</a></li>
+            </ol>
+            <p style="font-size:14px;color:#666;line-height:1.7;margin:0">If you have any questions, reply directly to this email. We can't wait to see what you build.</p>
+          </td></tr>
+          <tr><td style="background:#2E3A4F;padding:20px 40px">
+            <p style="font-size:12px;color:#B0B3B8;margin:0;opacity:.6">VentureDock · Global Innovation Program</p>
+          </td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- E3: PROGRAM WELCOME                             -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="email-card" id="e3">
+    <div class="card-header">
+      <h2>Email 3 — Program Welcome</h2>
+      <span class="email-type">Transactional</span>
+    </div>
+    <div class="meta">
+      <span>To:</span> All confirmed program participants &nbsp;|&nbsp;
+      <span>Subject:</span> Welcome to VentureDock Market Access Program — your pre-work is here &nbsp;|&nbsp;
+      <span>Send:</span> 7 days before Session 1
+    </div>
+    <div class="email-preview">
+      <div class="email-body">
+        <table width="100%" cellpadding="0" cellspacing="0" style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff">
+          <tr><td style="background:#2E3A4F;padding:28px 40px">
+            <p style="color:#B0B3B8;font-size:20px;font-weight:800;margin:0">VentureDock</p>
+            <p style="color:#B0B3B8;font-size:12px;margin:4px 0 0;opacity:.5">Market Access Program · Welcome</p>
+          </td></tr>
+          <tr><td style="padding:40px 40px 0">
+            <p style="font-size:22px;font-weight:800;color:#3B706A;margin:0 0 8px">Welcome to the program, {{FIRST_NAME}} 👋</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 20px">Your first session is in <strong>7 days</strong>. Here's everything you need to hit the ground running.</p>
+          </td></tr>
+
+          <!-- Pre-work checklist -->
+          <tr><td style="padding:0 40px">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#F2F4F8;border-radius:10px">
+              <tr><td style="padding:20px 24px">
+                <p style="font-size:13px;font-weight:700;color:#3B706A;letter-spacing:.06em;margin:0 0 14px">✅ PRE-WORK CHECKLIST (complete before Session 1)</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#333">☐ &nbsp;Read Slides 1–10 of the Program Overview deck (attached)</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#333">☐ &nbsp;Write your 1-line company description (ICP + value prop)</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#333">☐ &nbsp;List your top 3 US market assumptions (what must be true for you to win)</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#333">☐ &nbsp;Know your current MRR, CAC, and customer count</p>
+                <p style="margin:0;font-size:14px;color:#333">☐ &nbsp;Join the program Slack/WhatsApp and introduce yourself</p>
+              </td></tr>
+            </table>
+          </td></tr>
+
+          <!-- Session 1 info -->
+          <tr><td style="padding:28px 40px 0">
+            <p style="font-size:16px;font-weight:700;color:#3B706A;margin:0 0 12px">Session 1: US Market Reality Check</p>
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#3B706A;font-weight:700;width:80px">📅 Date</td>
+                <td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#444">{{SESSION1_DATE}}</td>
+              </tr>
+              <tr>
+                <td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#3B706A;font-weight:700">🕐 Time</td>
+                <td style="padding:5px 0;border-bottom:1px solid #E4E8EF;font-size:13px;color:#444">{{SESSION1_TIME}} {{TIMEZONE}}</td>
+              </tr>
+              <tr>
+                <td style="padding:5px 0;font-size:13px;color:#3B706A;font-weight:700">🔗 Zoom</td>
+                <td style="padding:5px 0;font-size:13px"><a href="{{ZOOM_LINK}}" style="color:#3B706A">{{ZOOM_LINK}}</a></td>
+              </tr>
+            </table>
+          </td></tr>
+
+          <tr><td style="padding:28px 40px 40px">
+            <p style="font-size:14px;color:#666;line-height:1.7;margin:0">Come ready to share where you are with the US market — no polish needed. The more honest you are, the more value you'll get. See you on {{SESSION1_DATE}}.</p>
+          </td></tr>
+          <tr><td style="background:#F2F4F8;padding:20px 40px;border-top:1px solid #E4E8EF">
+            <p style="font-size:12px;color:#888;margin:0">VentureDock · <a href="#" style="color:#3B706A">Unsubscribe</a></p>
+          </td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- E4: SESSION REMINDER                            -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="email-card" id="e4">
+    <div class="card-header">
+      <h2>Email 4 — Session Reminder</h2>
+      <span class="email-type">Transactional · Repeat for each session</span>
+    </div>
+    <div class="meta">
+      <span>To:</span> All program participants &nbsp;|&nbsp;
+      <span>Subject:</span> Session {{SESSION_NUM}} tomorrow — {{SESSION_TITLE}} · Zoom link inside &nbsp;|&nbsp;
+      <span>Send:</span> 24 hours before each session
+    </div>
+    <div class="email-preview">
+      <div class="email-body">
+        <table width="100%" cellpadding="0" cellspacing="0" style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff">
+          <tr><td style="background:#2E3A4F;padding:20px 40px">
+            <p style="color:#B0B3B8;font-size:18px;font-weight:800;margin:0">VentureDock &nbsp;·&nbsp; <span style="opacity:.6;font-size:14px">Session {{SESSION_NUM}} of 6</span></p>
+          </td></tr>
+          <tr><td style="padding:36px 40px 28px">
+            <p style="font-size:13px;font-weight:700;color:#3B706A;letter-spacing:.08em;margin:0 0 6px">TOMORROW · {{SESSION_DATE}} · {{SESSION_TIME}}</p>
+            <p style="font-size:22px;font-weight:800;color:#3B706A;margin:0 0 20px">{{SESSION_TITLE}}</p>
+
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#F2F4F8;border-radius:10px;margin-bottom:24px">
+              <tr><td style="padding:18px 22px">
+                <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#3B706A">📋 TODAY'S AGENDA (90 min)</p>
+                <p style="margin:0 0 6px;font-size:13px;color:#444">0–10 min &nbsp; Welcome & homework check-in</p>
+                <p style="margin:0 0 6px;font-size:13px;color:#444">10–35 min &nbsp; {{FRAMEWORK_1}}</p>
+                <p style="margin:0 0 6px;font-size:13px;color:#444">35–60 min &nbsp; {{FRAMEWORK_2}}</p>
+                <p style="margin:0 0 6px;font-size:13px;color:#444">60–75 min &nbsp; Hot seat / peer review</p>
+                <p style="margin:0;font-size:13px;color:#444">75–90 min &nbsp; Homework briefing & close</p>
+              </td></tr>
+            </table>
+
+            <p style="font-size:14px;font-weight:700;color:#3B706A;margin:0 0 8px">Reminder: come with your homework submitted</p>
+            <p style="font-size:14px;color:#444;line-height:1.7;margin:0 0 24px">If you haven't submitted last session's homework, do it now — the first 10 minutes are a group check-in and you'll want to have something to share.</p>
+
+            <!-- CTA -->
+            <table cellpadding="0" cellspacing="0"><tr><td style="background:#2E3A4F;border-radius:8px;padding:12px 28px">
+              <a href="{{ZOOM_LINK}}" style="color:#fff;font-weight:700;font-size:15px;text-decoration:none">Join Zoom → {{ZOOM_LINK}}</a>
+            </td></tr></table>
+          </td></tr>
+          <tr><td style="background:#F2F4F8;padding:16px 40px;border-top:1px solid #E4E8EF">
+            <p style="font-size:12px;color:#888;margin:0">VentureDock Market Access Program · <a href="#" style="color:#3B706A">Unsubscribe</a></p>
+          </td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- E5: POST-PROGRAM                                -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="email-card" id="e5">
+    <div class="card-header">
+      <h2>Email 5 — Post-Program Follow-Up</h2>
+      <span class="email-type">Relationship</span>
+    </div>
+    <div class="meta">
+      <span>To:</span> All program participants &nbsp;|&nbsp;
+      <span>Subject:</span> The program is a wrap — what's next for you, {{FIRST_NAME}}? &nbsp;|&nbsp;
+      <span>Send:</span> 3 days after Demo Day
+    </div>
+    <div class="email-preview">
+      <div class="email-body">
+        <table width="100%" cellpadding="0" cellspacing="0" style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff">
+          <tr><td style="background:#2E3A4F;padding:28px 40px">
+            <p style="color:#B0B3B8;font-size:20px;font-weight:800;margin:0">VentureDock</p>
+          </td></tr>
+          <tr><td style="padding:40px 40px 32px">
+            <p style="font-size:22px;font-weight:800;color:#3B706A;margin:0 0 16px">You made it, {{FIRST_NAME}} 🏆</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">The program is officially complete. Watching you go from <em>where you were in Week 1</em> to pitching on Demo Day was genuinely impressive.</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 28px">Here's how to keep the momentum going:</p>
+
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px">
+              <tr><td style="background:#F2F4F8;border-radius:10px;padding:20px 24px">
+                <p style="margin:0 0 14px;font-size:13px;font-weight:700;color:#3B706A;letter-spacing:.05em">🚀 YOUR 30-DAY POST-PROGRAM ACTIONS</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#333;line-height:1.7">☐ &nbsp;Follow up with every investor who attended Demo Day within 48 hours</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#333;line-height:1.7">☐ &nbsp;Send a personalized note to your 3 most relevant mentor connections</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#333;line-height:1.7">☐ &nbsp;Lock in your next 3 customer meetings using the GTM playbook from Session 3</p>
+                <p style="margin:0 0 8px;font-size:14px;color:#333;line-height:1.7">☐ &nbsp;Update your pitch deck with Demo Day feedback (do it while it's fresh)</p>
+                <p style="margin:0;font-size:14px;color:#333;line-height:1.7">☐ &nbsp;Share your biggest win from the program on LinkedIn — tag #VentureDock</p>
+              </td></tr>
+            </table>
+
+            <p style="font-size:15px;font-weight:700;color:#3B706A;margin:0 0 8px">Stay in the community</p>
+            <p style="font-size:14px;color:#444;line-height:1.7;margin:0 0 20px">The program Slack/WhatsApp group stays open. Your fellow founders are now one of your most valuable US networks — use it.</p>
+            <p style="font-size:14px;color:#444;line-height:1.7;margin:0 0 24px">One ask: if VentureDock helped you, please refer one founder you think is ready. You can submit a referral at <a href="{{REFERRAL_LINK}}" style="color:#3B706A">{{REFERRAL_LINK}}</a>.</p>
+            <p style="font-size:14px;color:#666">Rooting for you. Let us know when you close your first US deal.<br><br>— The VentureDock Team</p>
+          </td></tr>
+          <tr><td style="background:#F2F4F8;padding:20px 40px;border-top:1px solid #E4E8EF">
+            <p style="font-size:12px;color:#888;margin:0">VentureDock · <a href="#" style="color:#3B706A">Unsubscribe</a></p>
+          </td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- N1: NURTURE — VISITED, DIDN'T APPLY            -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="email-card" id="n1">
+    <div class="card-header">
+      <h2>Nurture 1 — Visited, Didn't Apply</h2>
+      <span class="email-type">Nurture · Day 0</span>
+    </div>
+    <div class="meta">
+      <span>Subject:</span> Quick question, {{FIRST_NAME}} &nbsp;|&nbsp;
+      <span>Trigger:</span> Visited landing page but did not submit application within 24 hours &nbsp;|&nbsp;
+      <span>Send:</span> 24 hours after page visit (if email captured)
+    </div>
+    <div class="email-preview">
+      <div class="email-body">
+        <table width="100%" cellpadding="0" cellspacing="0" style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff">
+          <tr><td style="padding:40px 40px 36px">
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">Hi {{FIRST_NAME}},</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">You checked out VentureDock yesterday but didn't apply. Totally fine — wanted to ask one question:</p>
+            <p style="font-size:17px;font-weight:700;color:#3B706A;line-height:1.5;margin:0 0 24px;padding:16px 20px;background:#F2F4F8;border-radius:8px;border-left:4px solid #1E2761">What's the single biggest thing holding you back from making a serious push into the US market right now?</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">Just reply to this email. I read every response.</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 24px">If timing, budget, or stage is the concern — I'll tell you honestly whether VentureDock is right for you, or whether you'd be better served by something else.</p>
+            <p style="font-size:14px;color:#666;margin:0">— The VentureDock Team<br><a href="{{APPLY_LINK}}" style="color:#3B706A">Apply here when you're ready →</a></p>
+          </td></tr>
+          <tr><td style="background:#F2F4F8;padding:16px 40px;border-top:1px solid #E4E8EF">
+            <p style="font-size:12px;color:#888;margin:0">VentureDock · <a href="#" style="color:#3B706A">Unsubscribe</a></p>
+          </td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- N2: NURTURE — VALUE EMAIL                       -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="email-card" id="n2">
+    <div class="card-header">
+      <h2>Nurture 2 — Value Email</h2>
+      <span class="email-type">Nurture · Day 5</span>
+    </div>
+    <div class="meta">
+      <span>Subject:</span> The #1 mistake international founders make in the US (and how to fix it) &nbsp;|&nbsp;
+      <span>Trigger:</span> 5 days after Nurture 1 (if no reply / no application)
+    </div>
+    <div class="email-preview">
+      <div class="email-body">
+        <table width="100%" cellpadding="0" cellspacing="0" style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff">
+          <tr><td style="background:#2E3A4F;padding:20px 40px">
+            <p style="color:#B0B3B8;font-size:18px;font-weight:800;margin:0">VentureDock</p>
+          </td></tr>
+          <tr><td style="padding:36px 40px 32px">
+            <p style="font-size:21px;font-weight:800;color:#3B706A;margin:0 0 20px">The #1 mistake: entering the US with your home-market ICP</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">Hi {{FIRST_NAME}},</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">Of all the ways we've seen international founders stumble in the US, this one hurts the most — because it wastes the most time and money before you realize the problem:</p>
+            <p style="font-size:15px;font-style:italic;color:#3B706A;line-height:1.7;margin:0 0 16px;padding:16px 20px;background:#F2F4F8;border-radius:8px">"They assumed their best home-market customer type would be their best US customer type. It almost never is."</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">Why? US buyers have different:</p>
+            <ul style="margin:0 0 20px;padding-left:20px;color:#444;font-size:14px;line-height:2">
+              <li>Risk tolerance (they need proof of outcome, not proof of concept)</li>
+              <li>Buying processes (procurement, legal, infosec review — all real)</li>
+              <li>Competitive reference points (they're comparing you to US-native alternatives you may not know)</li>
+              <li>Success metrics (their definition of ROI may be entirely different from your home market)</li>
+            </ul>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 24px">The fix: define your US ICP from scratch. Don't port your existing one over. This is the first thing we do in VentureDock — and it changes everything downstream (GTM, messaging, hiring, fundraising).</p>
+            <table cellpadding="0" cellspacing="0"><tr><td style="background:#2E3A4F;border-radius:8px;padding:12px 24px">
+              <a href="{{APPLY_LINK}}" style="color:#fff;font-weight:700;font-size:14px;text-decoration:none">Apply to the Market Access Program →</a>
+            </td></tr></table>
+          </td></tr>
+          <tr><td style="background:#F2F4F8;padding:16px 40px;border-top:1px solid #E4E8EF">
+            <p style="font-size:12px;color:#888;margin:0">VentureDock · <a href="#" style="color:#3B706A">Unsubscribe</a></p>
+          </td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- N3: NURTURE — LAST CHANCE                       -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="email-card" id="n3">
+    <div class="card-header">
+      <h2>Nurture 3 — Last Chance</h2>
+      <span class="email-type">Nurture · Day 12</span>
+    </div>
+    <div class="meta">
+      <span>Subject:</span> Applications close {{DEADLINE}} &nbsp;|&nbsp;
+      <span>Trigger:</span> 7 days after Nurture 2 (if no application submitted)
+    </div>
+    <div class="email-preview">
+      <div class="email-body">
+        <table width="100%" cellpadding="0" cellspacing="0" style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff">
+          <tr><td style="background:#3B706A;padding:20px 40px">
+            <p style="color:#3B706A;font-size:18px;font-weight:800;margin:0">VentureDock · Last Call</p>
+          </td></tr>
+          <tr><td style="padding:36px 40px 32px">
+            <p style="font-size:21px;font-weight:800;color:#3B706A;margin:0 0 16px">Applications close {{DEADLINE}}.</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">Hi {{FIRST_NAME}},</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">We have <strong>{{SPOTS_REMAINING}} spots left</strong> in this program. After this, the next program won't start for several months.</p>
+            <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 24px">Here's a simple question to help you decide: <em>Where do you want your US market entry to be in 6 months — still a plan, or underway?</em></p>
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px">
+              <tr><td style="background:#F2F4F8;border-radius:10px;padding:18px 22px">
+                <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#3B706A">WHAT YOU GET IN 12 WEEKS</p>
+                <p style="margin:0 0 6px;font-size:13px;color:#444">✓ &nbsp;A razor-sharp US ICP and positioning statement</p>
+                <p style="margin:0 0 6px;font-size:13px;color:#444">✓ &nbsp;A 90-day GTM plan you can execute immediately</p>
+                <p style="margin:0 0 6px;font-size:13px;color:#444">✓ &nbsp;US legal and compliance clarity</p>
+                <p style="margin:0 0 6px;font-size:13px;color:#444">✓ &nbsp;A fundability-ready pitch for US investors</p>
+                <p style="margin:0;font-size:13px;color:#444">✓ &nbsp;A 5-minute Demo Day pitch in front of real investors</p>
+              </td></tr>
+            </table>
+            <table cellpadding="0" cellspacing="0" style="margin-bottom:20px"><tr><td style="background:#2E3A4F;border-radius:8px;padding:14px 32px">
+              <a href="{{APPLY_LINK}}" style="color:#fff;font-weight:700;font-size:15px;text-decoration:none">Apply Now — Takes 10 Minutes →</a>
+            </td></tr></table>
+            <p style="font-size:13px;color:#888;line-height:1.6">If this isn't the right time, no hard feelings — we'll send information about the next program when it opens. Just reply "not yet" and we'll update your preferences.</p>
+          </td></tr>
+          <tr><td style="background:#F2F4F8;padding:16px 40px;border-top:1px solid #E4E8EF">
+            <p style="font-size:12px;color:#888;margin:0">VentureDock · <a href="#" style="color:#3B706A">Unsubscribe</a></p>
+          </td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:.82rem;color:var(--gray);margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+    <strong>Variables to replace:</strong> {{FIRST_NAME}}, {{APPLICANT_EMAIL}}, {{START_DATE}}, {{SESSION_TIME}}, {{TIMEZONE}},
+    {{DEMO_DAY_DATE}}, {{PAYMENT_LINK}}, {{COMMUNITY_LINK}}, {{SURVEY_LINK}}, {{SESSION_NUM}}, {{SESSION_DATE}},
+    {{SESSION_TITLE}}, {{FRAMEWORK_1}}, {{FRAMEWORK_2}}, {{ZOOM_LINK}}, {{REFERRAL_LINK}}, {{APPLY_LINK}},
+    {{DEADLINE}}, {{SPOTS_REMAINING}}
+  </p>
+
+</div><!-- /main -->
+</div><!-- /layout -->
+</body>
+</html>

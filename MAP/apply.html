@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — VentureDock US Market Entry Launchpad</title>
+<meta name="description" content="Apply for VentureDock Market Access Program — a 12-week virtual program for international founders preparing to enter the US market.">
+<style>
+  @font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Light.ttf') format('truetype'); font-weight:300; }
+  @font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Regular.ttf') format('truetype'); font-weight:400; }
+  @font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight:600; }
+  @font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-ExtraBold.ttf') format('truetype'); font-weight:800; }
+  @font-face { font-family:'SourceSerif'; src:url('assets/fonts/SourceSerifVariable-Roman.otf') format('opentype'); font-weight:100 900; }
+  @font-face { font-family:'Athelas'; src:url('assets/fonts/Athelas-Italic.ttf') format('truetype'); font-style:italic; }
+
+  :root {
+    --navy: #2E3A4F;   /* midnight — replaces old navy */
+    --ice: #F2F4F8;    /* ice grey */
+    --light: #F2F4F8;
+    --gold: #FFECD4;   /* soft apricot */
+    --white: #FFFFFF;
+    --gray: #64748B;
+    --dkgray: #2E3A4F;
+    --border: #E4E8EF;
+    --red: #C0392B;
+    --green: #3B706A;
+    --teal: #3B706A;
+    --teal-dk: #2d5550;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family:'Poppins', system-ui, sans-serif; font-weight:300; color: var(--dkgray); background: var(--light); }
+
+  nav {
+    background: var(--teal); padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between; height: 64px;
+  }
+  .nav-logo { display:block; }
+  .nav-logo img { height:28px; display:block; }
+  .back-link { color: #B0B3B8; font-size: .88rem; text-decoration: none; opacity: .75; }
+  .back-link:hover { opacity: 1; color:#fff; }
+
+  .page-header {
+    background: var(--teal); padding: 48px 10% 40px;
+    text-align: center; color: #fff;
+  }
+  .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: .7rem; }
+  .page-header p { color: var(--ice); font-size: 1rem; opacity: .85; max-width: 560px; margin: 0 auto; line-height: 1.6; }
+  .header-badges {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;
+  }
+  .badge {
+    background: rgba(202,220,252,.15); border: 1px solid rgba(202,220,252,.3);
+    color: var(--ice); font-size: .78rem; letter-spacing: .06em;
+    padding: .3rem .9rem; border-radius: 20px;
+  }
+
+  .form-wrapper {
+    max-width: 760px; margin: 0 auto; padding: 48px 6%;
+  }
+
+  /* Progress bar */
+  .progress-bar { display: flex; gap: .5rem; margin-bottom: 2.5rem; }
+  .progress-step {
+    flex: 1; height: 4px; border-radius: 2px; background: var(--border);
+    transition: background .3s;
+  }
+  .progress-step.done { background: var(--teal); }
+  .progress-step.active { background: var(--teal); opacity:.5; }
+
+  /* Section cards */
+  .form-section {
+    background: #fff; border-radius: 14px; padding: 2rem 2rem 1.5rem;
+    border: 1px solid var(--border); margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(30,39,97,.07);
+    display: none;
+  }
+  .form-section.visible { display: block; }
+  .section-header { display: flex; align-items: center; gap: .9rem; margin-bottom: 1.8rem; }
+  .section-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--teal); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .85rem; font-weight: 800; flex-shrink: 0;
+  }
+  .section-header h2 { font-size: 1.15rem; color: var(--teal); font-weight: 700; }
+  .section-header p { font-size: .82rem; color: var(--gray); margin-top: .15rem; }
+
+  /* Form elements */
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+  .field-row.single { grid-template-columns: 1fr; }
+  .field-row.triple { grid-template-columns: 1fr 1fr 1fr; }
+  .field { display: flex; flex-direction: column; }
+  label { font-size: .82rem; font-weight: 700; color: var(--teal); margin-bottom: .4rem; }
+  label .req { color: var(--red); margin-left: .2rem; }
+  label .hint { font-weight: 400; color: var(--gray); font-size: .78rem; margin-left: .4rem; }
+
+  input[type=text], input[type=email], input[type=url], input[type=number],
+  select, textarea {
+    border: 1.5px solid var(--border); border-radius: 8px;
+    padding: .65rem .9rem; font-size: .92rem; color: var(--dkgray);
+    font-family: inherit; background: #fff;
+    transition: border-color .2s, box-shadow .2s;
+    width: 100%;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none; border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(30,39,97,.1);
+  }
+  textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231E2761' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .9rem center; padding-right: 2.5rem; }
+
+  .char-count { font-size: .75rem; color: var(--gray); text-align: right; margin-top: .25rem; }
+
+  /* Radio / checkbox groups */
+  .radio-group, .check-group { display: flex; flex-direction: column; gap: .6rem; }
+  .radio-group.horizontal { flex-direction: row; flex-wrap: wrap; gap: .5rem; }
+  .radio-opt, .check-opt {
+    display: flex; align-items: flex-start; gap: .7rem; cursor: pointer;
+    padding: .65rem .9rem; border-radius: 8px; border: 1.5px solid var(--border);
+    transition: border-color .2s, background .2s;
+  }
+  .radio-opt:has(input:checked), .check-opt:has(input:checked) {
+    border-color: var(--teal); background: var(--light);
+  }
+  .radio-opt input, .check-opt input { margin-top: .15rem; accent-color: var(--teal); flex-shrink: 0; }
+  .radio-opt .opt-text, .check-opt .opt-text { font-size: .9rem; }
+  .radio-opt .opt-text strong { display: block; color: var(--teal); font-size: .88rem; }
+  .radio-opt .opt-text span { font-size: .8rem; color: var(--gray); }
+
+  /* Range slider */
+  .range-wrapper { position: relative; }
+  input[type=range] { width: 100%; accent-color: var(--teal); }
+  .range-labels { display: flex; justify-content: space-between; font-size: .75rem; color: var(--gray); margin-top: .3rem; }
+
+  /* Score display */
+  .score-display {
+    background: var(--light); border-radius: 8px; padding: .6rem 1rem;
+    font-size: .88rem; color: var(--teal); font-weight: 700; text-align: center; margin-top: .5rem;
+  }
+
+  /* Navigation buttons */
+  .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .btn-back {
+    background: transparent; border: 1.5px solid var(--border); color: var(--teal);
+    padding: .7rem 1.5rem; border-radius: 8px; font-size: .9rem; font-weight: 600;
+    cursor: pointer; transition: border-color .2s;
+  }
+  .btn-back:hover { border-color: var(--teal); }
+  .btn-next {
+    background: var(--teal); color: #fff;
+    padding: .75rem 2rem; border-radius: 8px; font-size: .95rem; font-weight: 700;
+    border: none; cursor: pointer; transition: background .2s;
+  }
+  .btn-next:hover { background: #16206a; }
+  .btn-submit {
+    background: var(--teal); color: #fff;
+    padding: .85rem 2.5rem; border-radius: 8px; font-size: 1rem; font-weight: 800;
+    border: none; cursor: pointer; transition: background .2s;
+  }
+  .btn-submit:hover { background: #e09410; }
+  .step-counter { font-size: .82rem; color: var(--gray); }
+
+  /* Success screen */
+  #success-screen {
+    display: none; text-align: center;
+    background: #fff; border-radius: 14px; padding: 3.5rem 2rem;
+    border: 1px solid var(--border); max-width: 560px; margin: 0 auto;
+  }
+  .success-icon { font-size: 3.5rem; margin-bottom: 1.2rem; }
+  #success-screen h2 { font-size: 1.8rem; color: var(--teal); margin-bottom: .7rem; }
+  #success-screen p { color: var(--gray); line-height: 1.7; font-size: .95rem; }
+  #success-screen .next-steps {
+    background: var(--light); border-radius: 10px; padding: 1.4rem;
+    margin-top: 1.5rem; text-align: left;
+  }
+  #success-screen .next-steps h4 { font-size: .88rem; color: var(--teal); margin-bottom: .7rem; font-weight: 700; }
+  #success-screen .next-steps li { font-size: .87rem; color: var(--dkgray); padding: .3rem 0; }
+
+  .field-error { border-color: var(--red) !important; }
+  .error-msg { font-size: .78rem; color: var(--red); margin-top: .3rem; }
+
+  @media (max-width: 620px) {
+    .field-row { grid-template-columns: 1fr; }
+    .field-row.triple { grid-template-columns: 1fr; }
+    .form-wrapper { padding: 32px 4%; }
+    .form-section { padding: 1.5rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="assets/logo-white.png" alt="Venture Dock"></a>
+  <a href="index.html" class="back-link">← Back to program overview</a>
+</nav>
+
+<div class="page-header">
+  <h1>Apply to the Market Access Program</h1>
+  <p>The application takes about 10 minutes. We review every application personally and respond within 5 business days.</p>
+  <div class="header-badges">
+    <div class="badge">≤ 10 FOUNDERS PER PROGRAM</div>
+    <div class="badge">ROLLING ADMISSIONS</div>
+    <div class="badge">RESPONSE IN 5 DAYS</div>
+  </div>
+</div>
+
+<div class="form-wrapper">
+  <div class="progress-bar">
+    <div class="progress-step active" id="p1"></div>
+    <div class="progress-step" id="p2"></div>
+    <div class="progress-step" id="p3"></div>
+    <div class="progress-step" id="p4"></div>
+    <div class="progress-step" id="p5"></div>
+  </div>
+
+  <form id="apply-form" novalidate>
+
+    <!-- ── SECTION 1: Founder Info ── -->
+    <div class="form-section visible" id="s1">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div><h2>About You</h2><p>Tell us who you are and how to reach you.</p></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>First Name <span class="req">*</span></label>
+          <input type="text" name="first_name" placeholder="Jane" required>
+        </div>
+        <div class="field">
+          <label>Last Name <span class="req">*</span></label>
+          <input type="text" name="last_name" placeholder="Smith" required>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="jane@startup.com" required>
+        </div>
+        <div class="field">
+          <label>WhatsApp / Phone <span class="hint">(with country code)</span></label>
+          <input type="text" name="phone" placeholder="+1 555 123 4567">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Your Role at the Company <span class="req">*</span></label>
+          <select name="role" required>
+            <option value="">Select your role</option>
+            <option>Founder / CEO</option>
+            <option>Co-Founder</option>
+            <option>CTO / CPO</option>
+            <option>CMO / VP Marketing</option>
+            <option>VP Sales / CRO</option>
+            <option>Other (specify below)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Country of Residence <span class="req">*</span></label>
+          <select name="country" required>
+            <option value="">Select country</option>
+            <option>India</option><option>Israel</option><option>United Kingdom</option>
+            <option>Germany</option><option>France</option><option>Canada</option>
+            <option>Australia</option><option>Singapore</option><option>Japan</option>
+            <option>South Korea</option><option>Brazil</option><option>Mexico</option>
+            <option>Nigeria</option><option>South Africa</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field">
+          <label>LinkedIn Profile URL <span class="req">*</span></label>
+          <input type="url" name="linkedin" placeholder="https://linkedin.com/in/yourname" required>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <span class="step-counter">Step 1 of 5</span>
+        <button type="button" class="btn-next" onclick="goTo(2)">Next: Your Startup →</button>
+      </div>
+    </div>
+
+    <!-- ── SECTION 2: Startup Info ── -->
+    <div class="form-section" id="s2">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div><h2>About Your Startup</h2><p>Help us understand your business.</p></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Company Name <span class="req">*</span></label>
+          <input type="text" name="company" placeholder="Acme Inc." required>
+        </div>
+        <div class="field">
+          <label>Website</label>
+          <input type="url" name="website" placeholder="https://acme.com">
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field">
+          <label>One-Line Description <span class="req">*</span><span class="hint">What do you do and for whom?</span></label>
+          <input type="text" name="one_liner" maxlength="120" placeholder="e.g. AI-powered contract review for mid-market law firms" required>
+          <div class="char-count" id="one-liner-count">0 / 120</div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Industry / Category <span class="req">*</span></label>
+          <select name="industry" required>
+            <option value="">Select category</option>
+            <option>B2B SaaS</option><option>FinTech</option><option>HealthTech</option>
+            <option>EdTech</option><option>HRTech</option><option>LegalTech</option>
+            <option>MarTech</option><option>DevTools</option><option>Enterprise Software</option>
+            <option>Tech-Enabled Services</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Current Stage <span class="req">*</span></label>
+          <select name="stage" required>
+            <option value="">Select stage</option>
+            <option>Pre-seed (idea/MVP, pre-revenue)</option>
+            <option>Seed (early revenue, PSF)</option>
+            <option>Series A (scaling, PMF)</option>
+            <option>Series B+ (growth)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row triple">
+        <div class="field">
+          <label>Founded Year <span class="req">*</span></label>
+          <select name="founded" required>
+            <option value="">Year</option>
+            <option>2024</option><option>2023</option><option>2022</option>
+            <option>2021</option><option>2020</option><option>2019 or earlier</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Team Size <span class="req">*</span></label>
+          <select name="team_size" required>
+            <option value="">Select</option>
+            <option>1–2 (founders only)</option>
+            <option>3–5</option>
+            <option>6–15</option>
+            <option>16–50</option>
+            <option>50+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Total Funding Raised</label>
+          <select name="funding">
+            <option value="">Select</option>
+            <option>Bootstrapped ($0)</option>
+            <option>Under $250K</option>
+            <option>$250K–$1M</option>
+            <option>$1M–$5M</option>
+            <option>$5M+</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Current Monthly Revenue (MRR) <span class="req">*</span></label>
+          <select name="mrr" required>
+            <option value="">Select range</option>
+            <option>Pre-revenue</option>
+            <option>$1–$5K MRR</option>
+            <option>$5K–$20K MRR</option>
+            <option>$20K–$50K MRR</option>
+            <option>$50K–$100K MRR</option>
+            <option>$100K+ MRR</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Number of Paying Customers <span class="req">*</span></label>
+          <select name="customers" required>
+            <option value="">Select</option>
+            <option>0 (pre-revenue)</option>
+            <option>1–5</option>
+            <option>6–20</option>
+            <option>21–100</option>
+            <option>100+</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn-back" onclick="goTo(1)">← Back</button>
+        <span class="step-counter">Step 2 of 5</span>
+        <button type="button" class="btn-next" onclick="goTo(3)">Next: US Market →</button>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3: US Market Readiness ── -->
+    <div class="form-section" id="s3">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <div><h2>US Market Readiness</h2><p>Be honest — this helps us tailor the program to where you are.</p></div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field">
+          <label>What is your current relationship with the US market? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-opt">
+              <input type="radio" name="us_status" value="none" required>
+              <span class="opt-text"><strong>No US activity yet</strong><span>We plan to enter but haven't started</span></span>
+            </label>
+            <label class="radio-opt">
+              <input type="radio" name="us_status" value="exploring">
+              <span class="opt-text"><strong>Actively exploring</strong><span>Conversations with prospects, no closed deals</span></span>
+            </label>
+            <label class="radio-opt">
+              <input type="radio" name="us_status" value="first_customers">
+              <span class="opt-text"><strong>First US customers</strong><span>1–5 paying US customers</span></span>
+            </label>
+            <label class="radio-opt">
+              <input type="radio" name="us_status" value="scaling">
+              <span class="opt-text"><strong>Scaling in the US</strong><span>Consistent US revenue, looking to accelerate</span></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row single" style="margin-top:1.2rem">
+        <div class="field">
+          <label>How would you rate your US market readiness today?<span class="req">*</span></label>
+          <div class="range-wrapper">
+            <input type="range" name="readiness_score" min="1" max="10" value="5"
+              oninput="updateScore(this.value)">
+            <div class="range-labels">
+              <span>1 — Not ready</span>
+              <span>5 — Partially ready</span>
+              <span>10 — Very ready</span>
+            </div>
+          </div>
+          <div class="score-display" id="score-display">Current score: 5 / 10</div>
+        </div>
+      </div>
+
+      <div class="field-row single" style="margin-top:1.2rem">
+        <div class="field">
+          <label>What are your biggest blockers for US market entry? <span class="hint">(select all that apply)</span></label>
+          <div class="check-group">
+            <label class="check-opt">
+              <input type="checkbox" name="blockers" value="icp">
+              <span class="opt-text">I don't know exactly who my US buyer is</span>
+            </label>
+            <label class="check-opt">
+              <input type="checkbox" name="blockers" value="gtm">
+              <span class="opt-text">I don't have a US GTM channel that works yet</span>
+            </label>
+            <label class="check-opt">
+              <input type="checkbox" name="blockers" value="legal">
+              <span class="opt-text">US legal / compliance setup is unclear or incomplete</span>
+            </label>
+            <label class="check-opt">
+              <input type="checkbox" name="blockers" value="team">
+              <span class="opt-text">I need to hire a US team but don't know where to start</span>
+            </label>
+            <label class="check-opt">
+              <input type="checkbox" name="blockers" value="fundraising">
+              <span class="opt-text">I want to raise US venture or angel capital</span>
+            </label>
+            <label class="check-opt">
+              <input type="checkbox" name="blockers" value="network">
+              <span class="opt-text">I lack a US network / customer relationships</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn-back" onclick="goTo(2)">← Back</button>
+        <span class="step-counter">Step 3 of 5</span>
+        <button type="button" class="btn-next" onclick="goTo(4)">Next: Motivation →</button>
+      </div>
+    </div>
+
+    <!-- ── SECTION 4: Motivation ── -->
+    <div class="form-section" id="s4">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <div><h2>Your Goals & Commitment</h2><p>This section matters most to our selection committee.</p></div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field">
+          <label>Why do you want to enter the US market — and why now? <span class="req">*</span><span class="hint">(50–200 words)</span></label>
+          <textarea name="why_us" rows="5" maxlength="1400" placeholder="Be specific. What opportunity are you pursuing, what's your timing logic, and what happens to the business if you don't crack the US?" required></textarea>
+          <div class="char-count" id="why-us-count">0 / 1400</div>
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field">
+          <label>What is your single biggest goal for this 12-week program? <span class="req">*</span><span class="hint">(be specific — "get better at sales" is not a goal)</span></label>
+          <textarea name="goal" rows="3" maxlength="600" placeholder="e.g. Close my first 3 US enterprise customers with ACV > $20K by Week 12" required></textarea>
+          <div class="char-count" id="goal-count">0 / 600</div>
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field">
+          <label>Describe a time you failed in the US market (or with a customer) and what you learned. <span class="req">*</span></label>
+          <textarea name="failure" rows="4" maxlength="1000" placeholder="If you haven't tried yet, describe the biggest risk you see in your US entry." required></textarea>
+          <div class="char-count" id="failure-count">0 / 1000</div>
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field">
+          <label>Can you commit to attending all 6 sessions and completing homework? <span class="req">*</span></label>
+          <div class="radio-group horizontal">
+            <label class="radio-opt">
+              <input type="radio" name="commitment" value="yes" required>
+              <span class="opt-text">Yes, fully committed</span>
+            </label>
+            <label class="radio-opt">
+              <input type="radio" name="commitment" value="mostly">
+              <span class="opt-text">Mostly — I may miss one session</span>
+            </label>
+            <label class="radio-opt">
+              <input type="radio" name="commitment" value="unsure">
+              <span class="opt-text">Unsure — my schedule is unpredictable</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field">
+          <label>How did you hear about VentureDock?</label>
+          <select name="source">
+            <option value="">Select</option>
+            <option>Referred by a colleague or founder</option>
+            <option>LinkedIn</option>
+            <option>Email newsletter</option>
+            <option>Accelerator or incubator</option>
+            <option>Online search</option>
+            <option>Event or conference</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn-back" onclick="goTo(3)">← Back</button>
+        <span class="step-counter">Step 4 of 5</span>
+        <button type="button" class="btn-next" onclick="goTo(5)">Next: Final Details →</button>
+      </div>
+    </div>
+
+    <!-- ── SECTION 5: Final ── -->
+    <div class="form-section" id="s5">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <div><h2>Final Details</h2><p>Almost done — a few last things.</p></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Will a co-founder also be attending? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-opt">
+              <input type="radio" name="cofounder" value="no" required>
+              <span class="opt-text">No, just me</span>
+            </label>
+            <label class="radio-opt">
+              <input type="radio" name="cofounder" value="yes">
+              <span class="opt-text">Yes — we want the Team Seat (2 founders, $2,000)</span>
+            </label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Preferred start timing</label>
+          <select name="timing">
+            <option value="">Select</option>
+            <option>ASAP — next program</option>
+            <option>3–6 months from now</option>
+            <option>6–12 months from now</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field">
+          <label>Is there anything else you'd like us to know about your situation or goals?</label>
+          <textarea name="other" rows="3" maxlength="600" placeholder="Optional — special circumstances, specific topics you want addressed, scheduling constraints, etc."></textarea>
+        </div>
+      </div>
+
+      <div class="field-row single" style="margin-top:.5rem">
+        <label class="check-opt">
+          <input type="checkbox" name="terms" required>
+          <span class="opt-text">I confirm that I am a founder or co-founder with decision-making authority at my company, and I commit to attending all sessions if accepted. <span class="req">*</span></span>
+        </label>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn-back" onclick="goTo(4)">← Back</button>
+        <span class="step-counter">Step 5 of 5</span>
+        <button type="submit" class="btn-submit">Submit Application →</button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- ── SUCCESS SCREEN ── -->
+  <div id="success-screen">
+    <div class="success-icon">🎉</div>
+    <h2>Application Received!</h2>
+    <p>Thank you for applying to the VentureDock Market Access Program. We review every application personally and will be in touch within 5 business days.</p>
+    <div class="next-steps">
+      <h4>What happens next:</h4>
+      <ol>
+        <li style="margin-bottom:.4rem">1. You'll receive a confirmation email within the next few minutes.</li>
+        <li style="margin-bottom:.4rem">2. Our team reviews your application (typically within 3–5 business days).</li>
+        <li style="margin-bottom:.4rem">3. If shortlisted, we'll schedule a 20-minute video call.</li>
+        <li>4. Final decisions are communicated within 10 business days of your application.</li>
+      </ol>
+    </div>
+    <p style="margin-top:1.2rem; font-size:.85rem; color:var(--gray)">Questions? Email us at <a href="mailto:hello@venturedock.com">hello@venturedock.com</a></p>
+    <a href="index.html" style="display:inline-block; margin-top:1.5rem; color:var(--navy); font-weight:700; font-size:.9rem;">← Back to Program Overview</a>
+  </div>
+
+</div>
+
+<script>
+  let currentStep = 1;
+  const totalSteps = 5;
+
+  function goTo(step) {
+    // Hide all sections
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('visible'));
+    document.getElementById('s' + step).classList.add('visible');
+
+    // Update progress bar
+    document.querySelectorAll('.progress-step').forEach((p, i) => {
+      p.classList.remove('active', 'done');
+      if (i + 1 < step) p.classList.add('done');
+      if (i + 1 === step) p.classList.add('active');
+    });
+
+    currentStep = step;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Char counters
+  function attachCounter(fieldName, counterId, max) {
+    const el = document.querySelector('[name="' + fieldName + '"]');
+    const counter = document.getElementById(counterId);
+    if (!el || !counter) return;
+    el.addEventListener('input', () => {
+      counter.textContent = el.value.length + ' / ' + max;
+    });
+  }
+  attachCounter('one_liner', 'one-liner-count', 120);
+  attachCounter('why_us', 'why-us-count', 1400);
+  attachCounter('goal', 'goal-count', 600);
+  attachCounter('failure', 'failure-count', 1000);
+
+  function updateScore(val) {
+    const labels = {1:'Not ready',2:'Early stages',3:'Exploring',4:'Some progress',5:'Partially ready',6:'Building momentum',7:'Good progress',8:'Nearly ready',9:'Almost there',10:'Very ready'};
+    document.getElementById('score-display').textContent = `Current score: ${val} / 10 — ${labels[val] || ''}`;
+  }
+
+  // Form submission
+  document.getElementById('apply-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // In production, POST to your form backend here (Netlify Forms, Formspree, etc.)
+    document.getElementById('apply-form').style.display = 'none';
+    document.getElementById('success-screen').style.display = 'block';
+    document.querySelector('.progress-bar').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

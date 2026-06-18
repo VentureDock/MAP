@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venture Dock — US Market Entry Launchpad</title>
+<meta name="description" content="A 12-week virtual accelerator helping international founders crack the US market. 6 expert-led sessions, real mentors, Demo Day with investors.">
+<style>
+/* ── Brand Fonts ──────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins-Light.ttf') format('truetype');
+  font-weight: 300; font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500; font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600; font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800; font-style: normal;
+}
+@font-face {
+  font-family: 'SourceSerif';
+  src: url('assets/fonts/SourceSerifVariable-Roman.otf') format('opentype');
+  font-weight: 100 900; font-style: normal;
+}
+@font-face {
+  font-family: 'Athelas';
+  src: url('assets/fonts/Athelas-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic;
+}
+
+/* ── Brand Palette ────────────────────────────────────────────────────── */
+:root {
+  --teal:    #3B706A;   /* primary */
+  --teal-dk: #2d5550;   /* hover/dark teal */
+  --midnight:#2E3A4F;   /* dark backgrounds */
+  --plum:    #6C4F73;   /* accent */
+  --apricot: #FFECD4;   /* warm accent/CTA */
+  --apricot-dk: #f5d5b0;
+  --ice:     #F2F4F8;   /* light backgrounds */
+  --grey:    #B0B3B8;   /* neutral grey */
+  --white:   #FFFFFF;
+  --dkgray:  #2E3A4F;
+  --gray:    #64748B;
+  --border:  #E4E8EF;
+
+  --font-body: 'Poppins', system-ui, sans-serif;
+  --font-head: 'SourceSerif', Georgia, serif;
+  --font-italic: 'Athelas', Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--dkgray);
+  background: #fff;
+  line-height: 1.6;
+}
+a { color: var(--teal); text-decoration: none; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.2; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--midnight);
+  padding: 0 6%;
+  display: flex; align-items: center; justify-content: space-between; height: 68px;
+  box-shadow: 0 2px 20px rgba(0,0,0,.25);
+}
+.nav-logo img { height: 32px; display: block; }
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+.nav-links a {
+  color: var(--grey); font-family: var(--font-body);
+  font-weight: 400; font-size: .88rem; letter-spacing: .02em;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  background: var(--teal); color: var(--white) !important;
+  padding: .5rem 1.2rem; border-radius: 6px;
+  font-weight: 600 !important; font-size: .85rem !important;
+  transition: background .2s !important;
+}
+.nav-cta:hover { background: var(--teal-dk) !important; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--midnight);
+  background-image: radial-gradient(ellipse at 65% 40%, #3a4f6a 0%, var(--midnight) 65%);
+  min-height: 90vh; display: flex; align-items: center;
+  padding: 90px 10% 80px;
+}
+.hero-inner { max-width: 680px; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(59,112,106,.2); border: 1px solid rgba(59,112,106,.4);
+  color: #a8c5c2; font-size: .78rem; letter-spacing: .12em;
+  text-transform: uppercase; padding: .35rem 1rem; border-radius: 20px;
+  margin-bottom: 1.6rem; font-family: var(--font-body); font-weight: 500;
+}
+.hero-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+.hero h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  color: var(--white); font-weight: 800;
+  margin-bottom: 1rem; line-height: 1.1;
+}
+.hero h1 em {
+  font-family: var(--font-italic);
+  font-style: italic; color: #a8c5c2; font-weight: 400;
+}
+.hero p {
+  font-size: 1.1rem; color: var(--grey); line-height: 1.8;
+  margin-bottom: 2.2rem; max-width: 540px; font-weight: 300;
+}
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.btn-primary {
+  background: var(--teal); color: var(--white); font-weight: 600;
+  padding: .9rem 2.2rem; border-radius: 8px; font-size: 1rem;
+  transition: background .2s, transform .1s; display: inline-block;
+  font-family: var(--font-body);
+}
+.btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); }
+.btn-secondary {
+  background: transparent; color: var(--grey); font-weight: 400;
+  padding: .9rem 2.2rem; border-radius: 8px; font-size: 1rem;
+  border: 1px solid rgba(176,179,184,.3);
+  transition: border-color .2s, color .2s; display: inline-block;
+  font-family: var(--font-body);
+}
+.btn-secondary:hover { border-color: var(--grey); color: var(--white); }
+.hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; }
+.hero-stat .num {
+  font-family: var(--font-head); font-size: 2.6rem; font-weight: 800;
+  color: var(--white); line-height: 1;
+}
+.hero-stat .lbl {
+  font-size: .78rem; color: var(--grey); font-weight: 300;
+  letter-spacing: .04em; margin-top: .25rem;
+}
+
+/* ── SECTION BASE ── */
+section { padding: 88px 10%; }
+.section-tag {
+  font-family: var(--font-body); font-size: .72rem; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: .75rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.section-tag::before {
+  content: ''; display: block; width: 20px; height: 2px; background: var(--teal);
+}
+h2 {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--midnight); margin-bottom: 1rem;
+}
+.lead {
+  font-size: 1.05rem; color: var(--gray); line-height: 1.8;
+  max-width: 640px; margin-bottom: 2.8rem; font-weight: 300;
+}
+.callout-italic {
+  font-family: var(--font-italic);
+  font-style: italic; font-size: 1.15rem;
+  color: var(--teal); line-height: 1.7;
+}
+
+/* ── PROBLEMS ── */
+.problems { background: var(--ice); }
+.problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
+.problem-card {
+  background: #fff; border-radius: 12px; padding: 1.6rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(46,58,79,.06);
+  transition: box-shadow .2s, transform .2s;
+}
+.problem-card:hover { box-shadow: 0 8px 24px rgba(59,112,106,.12); transform: translateY(-2px); }
+.problem-card .icon { font-size: 1.6rem; margin-bottom: .8rem; }
+.problem-card h4 {
+  font-family: var(--font-head); font-size: 1rem;
+  color: var(--midnight); margin-bottom: .5rem;
+}
+.problem-card p { font-size: .88rem; color: var(--gray); line-height: 1.65; font-weight: 300; }
+
+/* ── FORMAT ── */
+.format-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 2.2rem; }
+.format-card {
+  background: var(--midnight); border-radius: 12px; padding: 1.8rem 1.4rem;
+  text-align: center;
+}
+.format-card .num {
+  font-family: var(--font-head); font-size: 2.6rem; font-weight: 800;
+  color: #a8c5c2; line-height: 1;
+}
+.format-card .lbl { font-size: .82rem; color: var(--grey); margin-top: .4rem; font-weight: 300; }
+
+/* ── CURRICULUM ── */
+.curriculum { background: #fff; }
+.sessions-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.2rem; }
+.session-row {
+  display: grid; grid-template-columns: 100px 1fr auto;
+  align-items: start; gap: 1.4rem;
+  background: var(--ice); border-radius: 12px; padding: 1.3rem 1.6rem;
+  border: 1px solid var(--border);
+  transition: box-shadow .2s;
+}
+.session-row:hover { box-shadow: 0 4px 18px rgba(59,112,106,.1); }
+.session-badge {
+  background: var(--teal); color: var(--white); border-radius: 10px;
+  text-align: center; padding: .6rem .4rem;
+}
+.session-badge .s-num {
+  font-family: var(--font-head); font-size: 1.6rem;
+  font-weight: 800; color: rgba(255,255,255,.9); display: block;
+}
+.session-badge .s-wk { font-size: .7rem; opacity: .7; letter-spacing: .04em; font-weight: 300; }
+.session-info h4 {
+  font-family: var(--font-head); font-size: 1.05rem;
+  color: var(--midnight); margin-bottom: .35rem;
+}
+.session-info p { font-size: .88rem; color: var(--gray); line-height: 1.6; font-weight: 300; }
+.session-tag {
+  background: rgba(59,112,106,.1); color: var(--teal);
+  font-size: .72rem; font-weight: 600; padding: .25rem .8rem;
+  border-radius: 20px; white-space: nowrap; align-self: flex-start;
+  letter-spacing: .04em;
+}
+.demo-day-row {
+  background: var(--midnight); border-radius: 12px; padding: 1.5rem 1.8rem;
+  display: flex; align-items: center; gap: 1.5rem; margin-top: 1rem;
+}
+.demo-day-row .trophy { font-size: 2rem; }
+.demo-day-row h4 { font-family: var(--font-head); color: var(--white); font-size: 1.15rem; }
+.demo-day-row p { color: var(--grey); font-size: .88rem; margin-top: .2rem; font-weight: 300; }
+
+/* ── MENTORS ── */
+.mentors { background: var(--ice); }
+.mentor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.2rem; }
+.mentor-card {
+  background: #fff; border-radius: 12px; padding: 1.6rem;
+  border: 1px solid var(--border); text-align: center;
+  box-shadow: 0 2px 10px rgba(46,58,79,.06);
+}
+.mentor-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--teal); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 1.1rem; font-weight: 700;
+  margin: 0 auto 1rem;
+}
+.mentor-card h4 { font-family: var(--font-head); font-size: .95rem; color: var(--midnight); }
+.mentor-card .role { font-size: .82rem; color: var(--gray); margin-top: .3rem; line-height: 1.5; font-weight: 300; }
+.mentor-card .focus {
+  font-size: .75rem; color: var(--teal); background: rgba(59,112,106,.08);
+  padding: .25rem .8rem; border-radius: 20px;
+  display: inline-block; margin-top: .8rem; font-weight: 500;
+}
+
+/* ── WHO IT'S FOR ── */
+.criteria-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.criteria-box { border-radius: 12px; padding: 1.8rem; }
+.criteria-box.good { background: rgba(59,112,106,.06); border: 1px solid rgba(59,112,106,.25); }
+.criteria-box.bad  { background: rgba(108,79,115,.06); border: 1px solid rgba(108,79,115,.2); }
+.criteria-box h4 { font-family: var(--font-head); font-size: .95rem; font-weight: 700; margin-bottom: 1rem; }
+.criteria-box.good h4 { color: var(--teal); }
+.criteria-box.bad  h4 { color: var(--plum); }
+.criteria-box ul { list-style: none; }
+.criteria-box ul li {
+  font-size: .88rem; color: var(--dkgray); padding: .4rem 0;
+  border-bottom: 1px solid rgba(0,0,0,.06); line-height: 1.6; font-weight: 300;
+}
+.criteria-box ul li:last-child { border-bottom: none; }
+.criteria-box.good li::before { content: "✓ "; color: var(--teal); font-weight: 700; }
+.criteria-box.bad  li::before { content: "✗ "; color: var(--plum); font-weight: 700; }
+
+/* ── TIMELINE ── */
+.timeline { background: var(--midnight); }
+.timeline h2 { color: var(--white); }
+.timeline .lead { color: var(--grey); }
+.timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0; margin-top: 2.8rem; }
+.tl-item { border-top: 3px solid rgba(176,179,184,.2); padding: 1.2rem .5rem 0; }
+.tl-item.active { border-top-color: var(--teal); }
+.tl-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(176,179,184,.25); margin-bottom: .8rem; }
+.tl-item.active .tl-dot { background: var(--teal); }
+.tl-item .wk { font-size: .72rem; color: var(--grey); opacity: .6; letter-spacing: .07em; margin-bottom: .35rem; font-weight: 300; }
+.tl-item h5 { font-family: var(--font-head); font-size: .88rem; color: var(--white); font-weight: 600; line-height: 1.35; }
+.tl-item.active h5 { color: #a8c5c2; }
+
+/* ── INVESTMENT ── */
+.investment { background: var(--ice); }
+.invest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+.invest-card {
+  background: #fff; border-radius: 14px; padding: 2.2rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 18px rgba(46,58,79,.08);
+}
+.invest-card.featured {
+  border-color: var(--teal); border-width: 2px;
+  background: var(--midnight); color: var(--white);
+}
+.invest-card h3 { font-family: var(--font-head); font-size: 1.1rem; color: var(--midnight); }
+.invest-card.featured h3 { color: #a8c5c2; }
+.invest-card .price {
+  font-family: var(--font-head); font-size: 2.6rem; font-weight: 800;
+  color: var(--teal); margin: .6rem 0;
+}
+.invest-card.featured .price { color: var(--white); }
+.invest-card .price span { font-family: var(--font-body); font-size: .95rem; font-weight: 300; color: var(--gray); }
+.invest-card.featured .price span { color: var(--grey); }
+.invest-card .features { list-style: none; margin-top: 1.4rem; }
+.invest-card .features li {
+  font-size: .9rem; padding: .5rem 0;
+  border-bottom: 1px solid var(--border); font-weight: 300;
+  color: var(--dkgray);
+}
+.invest-card.featured .features li { border-bottom-color: rgba(176,179,184,.15); color: var(--grey); }
+.invest-card .features li:last-child { border: none; }
+.invest-card .features li::before { content: "✓  "; color: var(--teal); font-weight: 700; }
+
+/* ── CALLOUT QUOTE ── */
+.quote-band { background: var(--teal); padding: 60px 10%; text-align: center; }
+.quote-band blockquote {
+  font-family: var(--font-italic); font-style: italic;
+  font-size: clamp(1.3rem, 3vw, 1.8rem); color: var(--white);
+  max-width: 760px; margin: 0 auto; line-height: 1.7;
+}
+.quote-band cite { display: block; margin-top: 1.2rem; font-family: var(--font-body); font-style: normal; font-size: .85rem; color: rgba(255,255,255,.6); font-weight: 300; letter-spacing: .06em; }
+
+/* ── FAQ ── */
+.faq { background: #fff; }
+.faq-list { margin-top: 2rem; display: flex; flex-direction: column; gap: .7rem; max-width: 800px; }
+.faq-item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.faq-q {
+  padding: 1.15rem 1.5rem; font-family: var(--font-head);
+  font-weight: 700; font-size: .95rem; color: var(--midnight);
+  cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  background: var(--ice);
+}
+.faq-q::after { content: "+"; font-size: 1.4rem; color: var(--teal); font-family: var(--font-body); font-weight: 300; }
+.faq-a { padding: 0 1.5rem 1.2rem; font-size: .9rem; color: var(--gray); line-height: 1.75; display: none; font-weight: 300; }
+.faq-item.open .faq-q::after { content: "−"; }
+.faq-item.open .faq-a { display: block; }
+
+/* ── CTA BANNER ── */
+.cta-banner { background: var(--apricot); padding: 72px 10%; text-align: center; }
+.cta-banner h2 { font-family: var(--font-head); color: var(--midnight); font-size: clamp(1.7rem, 3.5vw, 2.4rem); margin-bottom: .8rem; }
+.cta-banner p { font-family: var(--font-italic); font-style: italic; color: var(--midnight); opacity: .75; font-size: 1.1rem; margin-bottom: 2.2rem; }
+.btn-midnight {
+  background: var(--midnight); color: var(--white); font-weight: 600;
+  padding: .95rem 2.4rem; border-radius: 8px; font-size: 1rem;
+  display: inline-block; transition: background .2s;
+  font-family: var(--font-body);
+}
+.btn-midnight:hover { background: #1a2535; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--midnight); padding: 44px 10%;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+}
+footer .footer-logo img { height: 28px; }
+footer p { font-size: .82rem; color: var(--grey); font-weight: 300; opacity: .6; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  section { padding: 60px 6%; }
+  nav { padding: 0 6%; }
+  .hero { padding: 60px 6%; min-height: auto; }
+  .criteria-grid { grid-template-columns: 1fr; }
+  .invest-grid { grid-template-columns: 1fr; }
+  .session-row { grid-template-columns: 80px 1fr; }
+  .session-tag { display: none; }
+  .nav-links { display: none; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="assets/logo-white.png" alt="Venture Dock">
+  </a>
+  <div class="nav-links">
+    <a href="#program">Program</a>
+    <a href="#curriculum">Curriculum</a>
+    <a href="#mentors">Mentors</a>
+    <a href="#investment">Investment</a>
+    <a href="#faq">FAQ</a>
+    <a href="apply.html" class="nav-cta">Apply Now →</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Global Innovation Program · Market Access Program</div>
+    <h1>A Structured Path into<br><em>the US Market</em></h1>
+    <p>Venture Dock is a 12-week virtual program for international founders preparing to enter the US market — covering customers, hiring, legal, and fundraising in a structured, peer-supported format.</p>
+    <div class="hero-ctas">
+      <a href="apply.html" class="btn-primary">Apply to the Program →</a>
+      <a href="#program" class="btn-secondary">See the Program</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">6</div><div class="lbl">Expert-Led Sessions</div></div>
+      <div class="hero-stat"><div class="num">12</div><div class="lbl">Weeks</div></div>
+      <div class="hero-stat"><div class="num">90</div><div class="lbl">Min / Session</div></div>
+      <div class="hero-stat"><div class="num">1</div><div class="lbl">Investor Demo Day</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEMS ── -->
+<section class="problems" id="program">
+  <div class="section-tag">The Challenge</div>
+  <h2>Why Most International Startups<br>Fail in the US</h2>
+  <p class="lead">Entering the US market is a significant undertaking. These are six of the most common challenges international founders face — and what the program addresses directly.</p>
+  <div class="problem-grid">
+    <div class="problem-card"><div class="icon">🎯</div><h4>Wrong ICP</h4><p>Assuming your home-market customer profile translates directly into the US.</p></div>
+    <div class="problem-card"><div class="icon">⏱</div><h4>Underestimating Sales Cycles</h4><p>US enterprise sales cycles run 2–4× longer than founders expect from their home markets.</p></div>
+    <div class="problem-card"><div class="icon">💰</div><h4>Pricing Off-Benchmark</h4><p>Setting prices without anchoring to US competitive data — leaving money on the table or pricing yourself out.</p></div>
+    <div class="problem-card"><div class="icon">⚖️</div><h4>No Legal Entity</h4><p>Skipping US incorporation before signing the first customer — a costly mistake that slows everything.</p></div>
+    <div class="problem-card"><div class="icon">🗺</div><h4>Treating the US as One Market</h4><p>The US is 5+ distinct regional markets. Your GTM must reflect that.</p></div>
+    <div class="problem-card"><div class="icon">🤝</div><h4>Premature US Hiring</h4><p>Hiring a VP Sales before achieving problem-solution fit burns cash and credibility fast.</p></div>
+  </div>
+</section>
+
+<!-- ── QUOTE ── -->
+<div class="quote-band">
+  <blockquote>"Most international founders don't fail in the US because they have a bad product. They fail because they have the wrong playbook."</blockquote>
+  <cite>— Venture Dock Program Team</cite>
+</div>
+
+<!-- ── FORMAT ── -->
+<section>
+  <div class="section-tag">Program Format</div>
+  <h2>Program Format</h2>
+  <p class="lead">Six 90-minute virtual sessions, held every two weeks over 12 weeks. Sessions are recorded and homework assignments are designed to be applied directly to your business.</p>
+  <div class="format-grid">
+    <div class="format-card"><div class="num">6</div><div class="lbl">Virtual Sessions</div></div>
+    <div class="format-card"><div class="num">90</div><div class="lbl">Minutes Each</div></div>
+    <div class="format-card"><div class="num">2</div><div class="lbl">Weeks Between</div></div>
+    <div class="format-card"><div class="num">12</div><div class="lbl">Total Weeks</div></div>
+    <div class="format-card"><div class="num">1</div><div class="lbl">Investor Demo Day</div></div>
+    <div class="format-card"><div class="num">≤10</div><div class="lbl">Founders per Program</div></div>
+  </div>
+</section>
+
+<!-- ── CURRICULUM ── -->
+<section class="curriculum" id="curriculum">
+  <div class="section-tag">Curriculum</div>
+  <h2>Six Sessions. One Structured US Market Curriculum.</h2>
+  <p class="lead">Each session combines frameworks, practitioner mentorship, peer discussion, and a concrete homework deliverable — so participants work on their actual business throughout the program.</p>
+  <div class="sessions-list">
+    <div class="session-row">
+      <div class="session-badge"><span class="s-num">01</span><span class="s-wk">WEEK 2</span></div>
+      <div class="session-info"><h4>US Market Reality Check</h4><p>Diagnose your US readiness, map your startup stage (PSF → PMF → Scale), and identify the single biggest gap between where you are and where you need to be.</p></div>
+      <div class="session-tag">Foundations</div>
+    </div>
+    <div class="session-row">
+      <div class="session-badge"><span class="s-num">02</span><span class="s-wk">WEEK 4</span></div>
+      <div class="session-info"><h4>ICP, Positioning & Messaging</h4><p>Define a razor-sharp Ideal Customer Profile, craft a differentiated positioning statement, and build messaging that resonates with US buyers.</p></div>
+      <div class="session-tag">Customers</div>
+    </div>
+    <div class="session-row">
+      <div class="session-badge"><span class="s-num">03</span><span class="s-wk">WEEK 6</span></div>
+      <div class="session-info"><h4>Go-To-Market Strategy</h4><p>Select your primary US GTM channel, build your 90-day execution plan, and define the leading metrics that prove the engine is working before you scale spend.</p></div>
+      <div class="session-tag">Execution</div>
+    </div>
+    <div class="session-row">
+      <div class="session-badge"><span class="s-num">04</span><span class="s-wk">WEEK 8</span></div>
+      <div class="session-info"><h4>Legal, Compliance & Team Building</h4><p>Make the right entity and compliance decisions for your stage, identify your first 2 US hires, and learn what US employees expect that's different from your home market.</p></div>
+      <div class="session-tag">Infrastructure</div>
+    </div>
+    <div class="session-row">
+      <div class="session-badge"><span class="s-num">05</span><span class="s-wk">WEEK 10</span></div>
+      <div class="session-info"><h4>Fundraising & Financial Discipline</h4><p>Assess your VC fundability, know your key metrics cold (CAC, LTV, burn multiple), and build an investor outreach strategy with a target list of 20 qualified names.</p></div>
+      <div class="session-tag">Investors</div>
+    </div>
+    <div class="session-row">
+      <div class="session-badge"><span class="s-num">06</span><span class="s-wk">WEEK 12</span></div>
+      <div class="session-info"><h4>Partnerships, Pilots & Demo Day Prep</h4><p>Identify strategic partnerships that accelerate GTM without diluting focus, structure pilots that convert to contracts, and rehearse your 5-minute investor pitch.</p></div>
+      <div class="session-tag">Scale</div>
+    </div>
+    <div class="demo-day-row">
+      <div class="trophy">🏆</div>
+      <div>
+        <h4>Demo Day — Investor Showcase</h4>
+        <p>Week 13–14 · Each founder pitches 5 minutes to a curated audience of US investors, angels, and ecosystem partners.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MENTORS ── -->
+<section class="mentors" id="mentors">
+  <div class="section-tag">Expert Mentors</div>
+  <h2>Practitioners with US Startup Experience</h2>
+  <p class="lead">Each session features a practitioner mentor who has built, scaled, or invested in US startups — bringing direct experience and practical frameworks.</p>
+  <div class="mentor-grid">
+    <div class="mentor-card"><div class="mentor-avatar">BV</div><h4>BV / Ashish</h4><div class="role">Lead Program Mentor<br>Startup Operator & Advisor</div><div class="focus">Foundations · GTM · Execution</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">RK</div><h4>Ram Kedlaya</h4><div class="role">Leadership & Culture Expert<br>Cross-Border Team Builder</div><div class="focus">Leadership · Team Building</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">MW</div><h4>Mark Weiner</h4><div class="role">Marketing Strategy Leader<br>US Brand & Demand Gen</div><div class="focus">Marketing · Positioning</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">AM</div><h4>Ashish Mehra</h4><div class="role">GTM & PLG Specialist<br>Product-Led Growth Expert</div><div class="focus">GTM · PLG Strategy</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">DS</div><h4>Deep Sahni</h4><div class="role">Investor Pitch Coach<br>Fundraising Strategist</div><div class="focus">Pitch · Fundraising</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">PA</div><h4>Praveen Akkiraju</h4><div class="role">Venture Investor<br>US Startup Ecosystem</div><div class="focus">Investors · Demo Day</div></div>
+  </div>
+</section>
+
+<!-- ── WHO IT'S FOR ── -->
+<section>
+  <div class="section-tag">Who It's For</div>
+  <h2>Built for Founders at the Right Stage</h2>
+  <p class="lead">Venture Dock is selective by design. We keep groups small (≤10 founders) so every session delivers real value to every person in the room.</p>
+  <div class="criteria-grid">
+    <div class="criteria-box good">
+      <h4>✓ Great Fit</h4>
+      <ul>
+        <li>B2B SaaS or tech-enabled startup</li>
+        <li>$50K+ in revenue or 3+ paying customers</li>
+        <li>Targeting the US as a primary or expansion market</li>
+        <li>Founder or co-founder with decision-making authority</li>
+        <li>Committed to all 6 sessions and homework</li>
+        <li>Ready to share pipeline data and get real feedback</li>
+      </ul>
+    </div>
+    <div class="criteria-box bad">
+      <h4>✗ Not Ready Yet</h4>
+      <ul>
+        <li>Pre-revenue or still validating the problem</li>
+        <li>B2C consumer products (not our focus)</li>
+        <li>Looking for passive learning, not accountability</li>
+        <li>US-based founders (program is for international entrants)</li>
+        <li>Attending as a delegate, not a decision-maker</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── TIMELINE ── -->
+<section class="timeline" id="timeline">
+  <div class="section-tag" style="color:rgba(168,197,194,.7)">12-Week Schedule</div>
+  <h2>12-Week Schedule</h2>
+  <p class="lead">Sessions are held every two weeks, giving participants time to apply frameworks and return with real-world results to discuss.</p>
+  <div class="timeline-grid">
+    <div class="tl-item active"><div class="tl-dot"></div><div class="wk">WEEK 1</div><h5>Onboarding & Pre-Work</h5></div>
+    <div class="tl-item active"><div class="tl-dot"></div><div class="wk">WEEK 2</div><h5>Session 1 · US Market Reality</h5></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="wk">WEEK 4</div><h5>Session 2 · ICP & Positioning</h5></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="wk">WEEK 6</div><h5>Session 3 · Go-To-Market</h5></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="wk">WEEK 8</div><h5>Session 4 · Legal & Team</h5></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="wk">WEEK 10</div><h5>Session 5 · Fundraising</h5></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="wk">WEEK 12</div><h5>Session 6 · Pilots & Demo Prep</h5></div>
+    <div class="tl-item active"><div class="tl-dot"></div><div class="wk">WEEK 13–14</div><h5>🏆 Demo Day</h5></div>
+  </div>
+</section>
+
+<!-- ── INVESTMENT ── -->
+<section class="investment" id="investment">
+  <div class="section-tag">Investment</div>
+  <h2>Program Pricing</h2>
+  <p class="lead">The program fee covers all six sessions, materials, and Demo Day participation.</p>
+  <div class="invest-grid">
+    <div class="invest-card">
+      <h3>Founder Seat</h3>
+      <div class="price">$1,200 <span>/ founder</span></div>
+      <ul class="features">
+        <li>6 live 90-minute virtual sessions</li>
+        <li>Founder Workbook with all frameworks</li>
+        <li>Access to all 6 session decks</li>
+        <li>Async support between sessions</li>
+        <li>Demo Day participation</li>
+        <li>Alumni network access</li>
+      </ul>
+    </div>
+    <div class="invest-card featured">
+      <h3>Team Seat (2 Founders)</h3>
+      <div class="price">$2,000 <span>/ startup</span></div>
+      <ul class="features">
+        <li>Everything in Founder Seat — for 2</li>
+        <li>2 seats at Demo Day</li>
+        <li>Co-founder alignment session (30 min)</li>
+        <li>Priority review of homework submissions</li>
+        <li>Featured in program portfolio</li>
+        <li>Save $400 vs. two individual seats</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq" id="faq">
+  <div class="section-tag">FAQ</div>
+  <h2>Common Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q">What timezone are sessions held in?</div><div class="faq-a">Sessions are scheduled to accommodate multiple international time zones. The exact schedule is confirmed after participant selection based on the group's locations. Most sessions run in a US morning / Asia-Europe evening window.</div></div>
+    <div class="faq-item"><div class="faq-q">Do I need to be incorporated in the US already?</div><div class="faq-a">No. Many founders join before incorporating — we cover the US entity decision in Session 4. However, you should have paying customers or strong early traction before applying.</div></div>
+    <div class="faq-item"><div class="faq-q">How much time per week does this require?</div><div class="faq-a">Expect 3–5 hours per week: 90 minutes for the live session every two weeks, plus 2–4 hours for homework. Homework is real work — not busywork.</div></div>
+    <div class="faq-item"><div class="faq-q">What happens if I miss a session?</div><div class="faq-a">Sessions are recorded. Missing one is manageable — missing two is grounds for removal from the program. We enforce attendance because the peer dynamic only works when everyone shows up.</div></div>
+    <div class="faq-item"><div class="faq-q">Is Demo Day only for investors?</div><div class="faq-a">Demo Day is primarily investor-facing, but you may invite up to 2 guests. The audience is curated and kept small to maximize quality of investor interactions.</div></div>
+    <div class="faq-item"><div class="faq-q">What industries do you accept?</div><div class="faq-a">We focus on B2B SaaS and tech-enabled services. We do not currently accept B2C consumer products, hardware-only startups, or crypto/web3 projects.</div></div>
+    <div class="faq-item"><div class="faq-q">When is the application deadline?</div><div class="faq-a">Rolling applications are accepted until the program is full (maximum 10 startups). We recommend applying early as spots fill on a first-accepted basis.</div></div>
+  </div>
+</section>
+
+<!-- ── CTA BANNER ── -->
+<div class="cta-banner">
+  <h2>Apply to the Market Access Program</h2>
+  <p>Applications are open. Spots are limited to 10 founders per program.</p>
+  <a href="apply.html" class="btn-midnight">Submit Your Application →</a>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <img src="assets/logo-white.png" alt="Venture Dock">
+    <p style="margin-top:.5rem">Global Innovation Program · Market Access Program</p>
+  </div>
+  <p>© 2026 Venture Dock. All rights reserved.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
