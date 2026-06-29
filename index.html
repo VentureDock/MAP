@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Venture Dock — US Market Entry Launchpad</title>
-<meta name="description" content="A 12-week virtual accelerator helping international founders crack the US market. 6 expert-led sessions, real mentors, Demo Day with investors.">
+<meta name="description" content="A 12-week virtual program helping global founders become US market ready before they land. 6 expert-led sessions, practical tools, and Demo Day with investors.">
 <style>
 /* ── Brand Fonts ──────────────────────────────────────────────────────── */
 @font-face {
@@ -210,6 +210,45 @@ h2 {
 }
 .format-card .lbl { font-size: .82rem; color: var(--grey); margin-top: .4rem; font-weight: 300; }
 
+/* ── REALITY STATS BANNER ── */
+.reality { background: #fff; }
+.reality-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 2.2rem; }
+.reality-card {
+  background: var(--ice); border-radius: 12px; padding: 1.8rem 1.6rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+}
+.reality-card .big {
+  font-family: var(--font-head); font-size: 2.2rem; font-weight: 800;
+  color: var(--teal); line-height: 1.1; margin-bottom: .6rem;
+}
+.reality-card p { font-size: .9rem; color: var(--gray); line-height: 1.6; font-weight: 300; }
+.reality-transition {
+  font-family: var(--font-italic); font-style: italic;
+  font-size: 1.15rem; color: var(--teal); line-height: 1.7;
+  margin-top: 2.2rem; max-width: 720px;
+}
+
+/* ── OUTCOMES (What You Walk Away With) ── */
+.outcomes { background: var(--ice); }
+.outcome-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 2.2rem; }
+.outcome-card {
+  background: #fff; border-radius: 12px; padding: 1.6rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(46,58,79,.06);
+  transition: box-shadow .2s, transform .2s;
+}
+.outcome-card:hover { box-shadow: 0 8px 24px rgba(59,112,106,.12); transform: translateY(-2px); }
+.outcome-card .o-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--teal); color: var(--white);
+  font-family: var(--font-head); font-weight: 800; font-size: 1rem;
+  margin-bottom: .9rem;
+}
+.outcome-card h4 { font-family: var(--font-head); font-size: 1rem; color: var(--midnight); margin-bottom: .5rem; }
+.outcome-card p { font-size: .88rem; color: var(--gray); line-height: 1.65; font-weight: 300; }
+
 /* ── CURRICULUM ── */
 .curriculum { background: #fff; }
 .sessions-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.2rem; }
@@ -289,26 +328,14 @@ h2 {
 .criteria-box.good li::before { content: "✓ "; color: var(--teal); font-weight: 700; }
 .criteria-box.bad  li::before { content: "✗ "; color: var(--plum); font-weight: 700; }
 
-/* ── TIMELINE ── */
-.timeline { background: var(--midnight); }
-.timeline h2 { color: var(--white); }
-.timeline .lead { color: var(--grey); }
-.timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0; margin-top: 2.8rem; }
-.tl-item { border-top: 3px solid rgba(176,179,184,.2); padding: 1.2rem .5rem 0; }
-.tl-item.active { border-top-color: var(--teal); }
-.tl-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(176,179,184,.25); margin-bottom: .8rem; }
-.tl-item.active .tl-dot { background: var(--teal); }
-.tl-item .wk { font-size: .72rem; color: var(--grey); opacity: .6; letter-spacing: .07em; margin-bottom: .35rem; font-weight: 300; }
-.tl-item h5 { font-family: var(--font-head); font-size: .88rem; color: var(--white); font-weight: 600; line-height: 1.35; }
-.tl-item.active h5 { color: #a8c5c2; }
-
 /* ── INVESTMENT ── */
 .investment { background: var(--ice); }
-.invest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+.invest-grid { display: flex; justify-content: center; margin-top: 2rem; }
 .invest-card {
   background: #fff; border-radius: 14px; padding: 2.2rem;
-  border: 1px solid var(--border);
+  border: 2px solid var(--teal);
   box-shadow: 0 4px 18px rgba(46,58,79,.08);
+  max-width: 460px; width: 100%;
 }
 .invest-card.featured {
   border-color: var(--teal); border-width: 2px;
@@ -411,9 +438,9 @@ footer p { font-size: .82rem; color: var(--grey); font-weight: 300; opacity: .6;
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-tag">Global Innovation Program · Market Access Program</div>
+    <div class="hero-tag">US Market Readiness Program for Global Founders</div>
     <h1>A Structured Path into<br><em>the US Market</em></h1>
-    <p>Venture Dock is a 12-week virtual program for international founders preparing to enter the US market — covering customers, hiring, legal, and fundraising in a structured, peer-supported format.</p>
+    <p>Entering the US market without the right guidance can cost founders time, money, and momentum. Venture Dock's 12-week virtual program helps global founders become US market ready before they land — with expert-led sessions, practical tools, and access to a credible Silicon Valley network.</p>
     <div class="hero-ctas">
       <a href="apply.html" class="btn-primary">Apply to the Program →</a>
       <a href="#program" class="btn-secondary">See the Program</a>
@@ -427,178 +454,178 @@ footer p { font-size: .82rem; color: var(--grey); font-weight: 300; opacity: .6;
   </div>
 </section>
 
+<!-- ── REALITY STATS ── -->
+<section class="reality">
+  <div class="section-tag">The Reality of Selling in the US</div>
+  <h2>The Reality of Selling in the US</h2>
+  <p class="lead">Before you sell into the US, it helps to understand how US buyers actually buy. The data makes the case for preparing properly first.</p>
+  <div class="reality-grid">
+    <div class="reality-card"><div class="big">67%</div><p>of B2B buyers prefer a rep-free buying experience — so strong positioning and clear messaging need to be in place before outreach begins.</p></div>
+    <div class="reality-card"><div class="big">74%</div><p>of B2B buyer teams face unhealthy conflict during the buying decision — founders must understand buying committees, internal alignment, and decision dynamics.</p></div>
+    <div class="reality-card"><div class="big">2.5×</div><p>more likely to report a high-quality deal when buying groups reach consensus — which is why messaging, buyer alignment, and sales readiness matter.</p></div>
+  </div>
+  <p class="reality-transition">The US market rewards founders who understand buyers before they start selling.</p>
+</section>
+
 <!-- ── PROBLEMS ── -->
 <section class="problems" id="program">
   <div class="section-tag">The Challenge</div>
-  <h2>Why Most International Startups<br>Fail in the US</h2>
-  <p class="lead">Entering the US market is a significant undertaking. These are six of the most common challenges international founders face — and what the program addresses directly.</p>
+  <h2>Why Global Startups<br>Struggle in the US Market</h2>
+  <p class="lead">The US market is full of opportunity, but it is also complex, competitive, and expensive to enter without the right preparation. These are the most common mistakes global founders make — and the exact gaps this program helps solve.</p>
   <div class="problem-grid">
-    <div class="problem-card"><div class="icon">🎯</div><h4>Wrong ICP</h4><p>Assuming your home-market customer profile translates directly into the US.</p></div>
-    <div class="problem-card"><div class="icon">⏱</div><h4>Underestimating Sales Cycles</h4><p>US enterprise sales cycles run 2–4× longer than founders expect from their home markets.</p></div>
-    <div class="problem-card"><div class="icon">💰</div><h4>Pricing Off-Benchmark</h4><p>Setting prices without anchoring to US competitive data — leaving money on the table or pricing yourself out.</p></div>
-    <div class="problem-card"><div class="icon">⚖️</div><h4>No Legal Entity</h4><p>Skipping US incorporation before signing the first customer — a costly mistake that slows everything.</p></div>
-    <div class="problem-card"><div class="icon">🗺</div><h4>Treating the US as One Market</h4><p>The US is 5+ distinct regional markets. Your GTM must reflect that.</p></div>
-    <div class="problem-card"><div class="icon">🤝</div><h4>Premature US Hiring</h4><p>Hiring a VP Sales before achieving problem-solution fit burns cash and credibility fast.</p></div>
+    <div class="problem-card"><div class="icon">🎯</div><h4>Wrong ICP</h4><p>Assuming your home-market customer profile will work in the US without testing buyer behavior, budget, and urgency.</p></div>
+    <div class="problem-card"><div class="icon">⏱</div><h4>Underestimating Sales Cycles</h4><p>Underestimating how long US enterprise sales, procurement, security review, and stakeholder alignment can take.</p></div>
+    <div class="problem-card"><div class="icon">💰</div><h4>Pricing Off-Benchmark</h4><p>Pricing without understanding US benchmarks, buyer expectations, and competitive alternatives.</p></div>
+    <div class="problem-card"><div class="icon">⚖️</div><h4>Legal & Operational Readiness</h4><p>Not being ready for US contracts, entity decisions, tax, compliance, IP, and customer onboarding requirements.</p></div>
+    <div class="problem-card"><div class="icon">🗺</div><h4>Treating the US as One Market</h4><p>Treating the US as one market instead of adapting by industry, region, buyer segment, and channel.</p></div>
+    <div class="problem-card"><div class="icon">🤝</div><h4>Premature US Hiring</h4><p>Hiring too early in the US before validating ICP, messaging, sales motion, and founder-led traction.</p></div>
   </div>
 </section>
 
 <!-- ── QUOTE ── -->
 <div class="quote-band">
-  <blockquote>"Most international founders don't fail in the US because they have a bad product. They fail because they have the wrong playbook."</blockquote>
+  <blockquote>"Most international founders don't struggle in the US because of the product. They struggle because they enter with the wrong market playbook."</blockquote>
   <cite>— Venture Dock Program Team</cite>
 </div>
 
 <!-- ── FORMAT ── -->
 <section>
-  <div class="section-tag">Program Format</div>
-  <h2>Program Format</h2>
-  <p class="lead">Six 90-minute virtual sessions, held every two weeks over 12 weeks. Sessions are recorded and homework assignments are designed to be applied directly to your business.</p>
+  <div class="section-tag">How the Program Works</div>
+  <h2>How the Program Works</h2>
+  <p class="lead">A structured 12-week virtual program designed for busy global founders preparing to enter the US market. Every session is practical, founder-focused, and built to help you apply the learning directly to your business.</p>
   <div class="format-grid">
-    <div class="format-card"><div class="num">6</div><div class="lbl">Virtual Sessions</div></div>
+    <div class="format-card"><div class="num">6</div><div class="lbl">Expert-Led Virtual Sessions</div></div>
     <div class="format-card"><div class="num">90</div><div class="lbl">Minutes Each</div></div>
-    <div class="format-card"><div class="num">2</div><div class="lbl">Weeks Between</div></div>
-    <div class="format-card"><div class="num">12</div><div class="lbl">Total Weeks</div></div>
+    <div class="format-card"><div class="num">2</div><div class="lbl">Weeks Between — Time to Prepare</div></div>
+    <div class="format-card"><div class="num">12</div><div class="lbl">Weeks · Structured Market Readiness Journey</div></div>
     <div class="format-card"><div class="num">1</div><div class="lbl">Investor Demo Day</div></div>
-    <div class="format-card"><div class="num">≤10</div><div class="lbl">Founders per Program</div></div>
+    <div class="format-card"><div class="num">≤20</div><div class="lbl">Founders per Cohort</div></div>
   </div>
 </section>
 
 <!-- ── CURRICULUM ── -->
 <section class="curriculum" id="curriculum">
   <div class="section-tag">Curriculum</div>
-  <h2>Six Sessions. One Structured US Market Curriculum.</h2>
-  <p class="lead">Each session combines frameworks, practitioner mentorship, peer discussion, and a concrete homework deliverable — so participants work on their actual business throughout the program.</p>
+  <h2>Six Sessions. One Practical US Market Readiness Curriculum.</h2>
+  <p class="lead">Each session combines practical frameworks, mentor guidance, peer discussion, and a clear business deliverable founders can apply directly to their US market entry plan.</p>
   <div class="sessions-list">
     <div class="session-row">
       <div class="session-badge"><span class="s-num">01</span><span class="s-wk">WEEK 2</span></div>
-      <div class="session-info"><h4>US Market Reality Check</h4><p>Diagnose your US readiness, map your startup stage (PSF → PMF → Scale), and identify the single biggest gap between where you are and where you need to be.</p></div>
+      <div class="session-info"><h4>US Market Reality Check &amp; Readiness</h4><p>Diagnose your US readiness, understand where you stand today in plain language, and identify the single biggest gap between where you are and where you need to be.</p></div>
       <div class="session-tag">Foundations</div>
     </div>
     <div class="session-row">
       <div class="session-badge"><span class="s-num">02</span><span class="s-wk">WEEK 4</span></div>
-      <div class="session-info"><h4>ICP, Positioning & Messaging</h4><p>Define a razor-sharp Ideal Customer Profile, craft a differentiated positioning statement, and build messaging that resonates with US buyers.</p></div>
+      <div class="session-info"><h4>ICP, Positioning &amp; Messaging</h4><p>Define a razor-sharp Ideal Customer Profile, craft a differentiated positioning statement, and build messaging that resonates with US buyers.</p></div>
       <div class="session-tag">Customers</div>
     </div>
     <div class="session-row">
       <div class="session-badge"><span class="s-num">03</span><span class="s-wk">WEEK 6</span></div>
-      <div class="session-info"><h4>Go-To-Market Strategy</h4><p>Select your primary US GTM channel, build your 90-day execution plan, and define the leading metrics that prove the engine is working before you scale spend.</p></div>
+      <div class="session-info"><h4>US GTM &amp; Sales Motion</h4><p>Select your primary US GTM channel, design a sales motion that fits US buyers, and build a 90-day execution plan with the leading metrics that prove the engine works before you scale spend.</p></div>
       <div class="session-tag">Execution</div>
     </div>
     <div class="session-row">
       <div class="session-badge"><span class="s-num">04</span><span class="s-wk">WEEK 8</span></div>
-      <div class="session-info"><h4>Legal, Compliance & Team Building</h4><p>Make the right entity and compliance decisions for your stage, identify your first 2 US hires, and learn what US employees expect that's different from your home market.</p></div>
+      <div class="session-info"><h4>Legal, Entity &amp; Operational Readiness</h4><p>Make the right entity and compliance decisions for your stage, and prepare for US contracts, tax basics, IP, and customer onboarding requirements.</p></div>
       <div class="session-tag">Infrastructure</div>
     </div>
     <div class="session-row">
       <div class="session-badge"><span class="s-num">05</span><span class="s-wk">WEEK 10</span></div>
-      <div class="session-info"><h4>Fundraising & Financial Discipline</h4><p>Assess your VC fundability, know your key metrics cold (CAC, LTV, burn multiple), and build an investor outreach strategy with a target list of 20 qualified names.</p></div>
-      <div class="session-tag">Investors</div>
+      <div class="session-info"><h4>US Sales, Procurement, Pilots &amp; Partnerships</h4><p>Navigate US procurement and security review, structure pilots that convert to contracts, and identify strategic partnerships that accelerate GTM without diluting focus.</p></div>
+      <div class="session-tag">Traction</div>
     </div>
     <div class="session-row">
       <div class="session-badge"><span class="s-num">06</span><span class="s-wk">WEEK 12</span></div>
-      <div class="session-info"><h4>Partnerships, Pilots & Demo Day Prep</h4><p>Identify strategic partnerships that accelerate GTM without diluting focus, structure pilots that convert to contracts, and rehearse your 5-minute investor pitch.</p></div>
-      <div class="session-tag">Scale</div>
+      <div class="session-info"><h4>Fundraising &amp; Demo Day Readiness</h4><p>Assess your VC fundability, know your key metrics cold (CAC, LTV, burn multiple), build your investor outreach strategy, and rehearse your 5-minute investor pitch.</p></div>
+      <div class="session-tag">Investors</div>
     </div>
     <div class="demo-day-row">
       <div class="trophy">🏆</div>
       <div>
         <h4>Demo Day — Investor Showcase</h4>
-        <p>Week 13–14 · Each founder pitches 5 minutes to a curated audience of US investors, angels, and ecosystem partners.</p>
+        <p>Week 12 · Each founder pitches 5 minutes to a curated audience of US investors, angels, operators, and ecosystem partners.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ── OUTCOMES (What You Walk Away With) ── -->
+<section class="outcomes">
+  <div class="section-tag">What You Walk Away With</div>
+  <h2>Build Your US Market Entry Plan Before You Land</h2>
+  <p class="lead">By the end of the program, founders will have a clearer US market strategy, stronger buyer messaging, and practical assets they can use immediately with customers, partners, and investors.</p>
+  <div class="outcome-grid">
+    <div class="outcome-card"><div class="o-num">1</div><h4>US Market Readiness Scorecard</h4><p>A clear view of where you stand today and what gaps need to be addressed before entering the US market.</p></div>
+    <div class="outcome-card"><div class="o-num">2</div><h4>Ideal Customer Profile &amp; Positioning Statement</h4><p>A sharper understanding of your target US buyer, use case, urgency, and differentiated positioning.</p></div>
+    <div class="outcome-card"><div class="o-num">3</div><h4>90-Day US GTM Plan</h4><p>A focused roadmap for your first US market moves, including channels, outreach, and success metrics.</p></div>
+    <div class="outcome-card"><div class="o-num">4</div><h4>Legal &amp; Operational Readiness Checklist</h4><p>A practical checklist covering entity, contracts, compliance, IP, tax basics, and customer onboarding readiness.</p></div>
+    <div class="outcome-card"><div class="o-num">5</div><h4>Pilot &amp; Procurement Readiness Plan</h4><p>A structured approach to designing pilots, navigating procurement, and converting early conversations into real opportunities.</p></div>
+    <div class="outcome-card"><div class="o-num">6</div><h4>Investor One-Pager &amp; Demo Day Pitch</h4><p>A refined investor narrative, one-pager, and 5-minute pitch for the final showcase.</p></div>
+  </div>
+</section>
+
 <!-- ── MENTORS ── -->
 <section class="mentors" id="mentors">
-  <div class="section-tag">Expert Mentors</div>
-  <h2>Practitioners with US Startup Experience</h2>
-  <p class="lead">Each session features a practitioner mentor who has built, scaled, or invested in US startups — bringing direct experience and practical frameworks.</p>
+  <div class="section-tag">Practitioner-Led Mentorship</div>
+  <h2>Learn from Operators, Investors &amp; GTM Leaders Who Understand the US Market</h2>
+  <p class="lead">Each session is designed to be led by experienced practitioners across GTM, sales, legal readiness, fundraising, partnerships, and US market expansion. The final mentor lineup will be announced before the cohort begins.</p>
   <div class="mentor-grid">
-    <div class="mentor-card"><div class="mentor-avatar">BV</div><h4>BV / Ashish</h4><div class="role">Lead Program Mentor<br>Startup Operator & Advisor</div><div class="focus">Foundations · GTM · Execution</div></div>
-    <div class="mentor-card"><div class="mentor-avatar">RK</div><h4>Ram Kedlaya</h4><div class="role">Leadership & Culture Expert<br>Cross-Border Team Builder</div><div class="focus">Leadership · Team Building</div></div>
-    <div class="mentor-card"><div class="mentor-avatar">MW</div><h4>Mark Weiner</h4><div class="role">Marketing Strategy Leader<br>US Brand & Demand Gen</div><div class="focus">Marketing · Positioning</div></div>
-    <div class="mentor-card"><div class="mentor-avatar">AM</div><h4>Ashish Mehra</h4><div class="role">GTM & PLG Specialist<br>Product-Led Growth Expert</div><div class="focus">GTM · PLG Strategy</div></div>
-    <div class="mentor-card"><div class="mentor-avatar">DS</div><h4>Deep Sahni</h4><div class="role">Investor Pitch Coach<br>Fundraising Strategist</div><div class="focus">Pitch · Fundraising</div></div>
-    <div class="mentor-card"><div class="mentor-avatar">PA</div><h4>Praveen Akkiraju</h4><div class="role">Venture Investor<br>US Startup Ecosystem</div><div class="focus">Investors · Demo Day</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">GS</div><h4>GTM &amp; Sales</h4><div class="role">US go-to-market strategy &amp; sales motion design</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">IP</div><h4>ICP &amp; Positioning</h4><div class="role">Buyer clarity, messaging &amp; differentiation</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">LC</div><h4>Legal &amp; Compliance</h4><div class="role">Entity, contracts, IP &amp; operational readiness</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">FR</div><h4>Fundraising</h4><div class="role">Investor readiness, metrics &amp; pitch coaching</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">PP</div><h4>Partnerships &amp; Pilots</h4><div class="role">Procurement, pilots &amp; commercial traction</div></div>
+    <div class="mentor-card"><div class="mentor-avatar">LH</div><h4>Leadership &amp; Hiring</h4><div class="role">Cross-border teams &amp; US hiring strategy</div></div>
   </div>
 </section>
 
 <!-- ── WHO IT'S FOR ── -->
 <section>
-  <div class="section-tag">Who It's For</div>
-  <h2>Built for Founders at the Right Stage</h2>
-  <p class="lead">Venture Dock is selective by design. We keep groups small (≤10 founders) so every session delivers real value to every person in the room.</p>
+  <div class="section-tag">Is This Program Right for You?</div>
+  <h2>Built for Global Founders Ready to Enter or Expand in the US</h2>
+  <p class="lead">Venture Dock is designed for serious B2B founders who are ready to approach the US market with structure, accountability, and expert guidance. Each cohort is capped at up to 20 founders to keep the experience focused and practical.</p>
   <div class="criteria-grid">
     <div class="criteria-box good">
       <h4>✓ Great Fit</h4>
       <ul>
-        <li>B2B SaaS or tech-enabled startup</li>
-        <li>$50K+ in revenue or 3+ paying customers</li>
+        <li>B2B SaaS, enterprise tech, AI, cybersecurity, deeptech, or tech-enabled startup</li>
+        <li>Early revenue, paying customers, pilots, or strong market validation</li>
         <li>Targeting the US as a primary or expansion market</li>
-        <li>Founder or co-founder with decision-making authority</li>
-        <li>Committed to all 6 sessions and homework</li>
-        <li>Ready to share pipeline data and get real feedback</li>
+        <li>Founder, co-founder, or senior decision-maker leading US expansion</li>
+        <li>Committed to attending sessions and applying the work to your business</li>
+        <li>Open to feedback on your ICP, GTM, pitch, pricing, and US market plan</li>
       </ul>
     </div>
     <div class="criteria-box bad">
       <h4>✗ Not Ready Yet</h4>
       <ul>
-        <li>Pre-revenue or still validating the problem</li>
-        <li>B2C consumer products (not our focus)</li>
-        <li>Looking for passive learning, not accountability</li>
-        <li>US-based founders (program is for international entrants)</li>
-        <li>Attending as a delegate, not a decision-maker</li>
+        <li>Still at idea stage with no customer validation yet</li>
+        <li>Pure B2C consumer products outside our current focus</li>
+        <li>Looking only for passive content, not hands-on application</li>
+        <li>Already operating primarily in the US market</li>
+        <li>Attending without authority to make GTM, sales, or expansion decisions</li>
       </ul>
     </div>
-  </div>
-</section>
-
-<!-- ── TIMELINE ── -->
-<section class="timeline" id="timeline">
-  <div class="section-tag" style="color:rgba(168,197,194,.7)">12-Week Schedule</div>
-  <h2>12-Week Schedule</h2>
-  <p class="lead">Sessions are held every two weeks, giving participants time to apply frameworks and return with real-world results to discuss.</p>
-  <div class="timeline-grid">
-    <div class="tl-item active"><div class="tl-dot"></div><div class="wk">WEEK 1</div><h5>Onboarding & Pre-Work</h5></div>
-    <div class="tl-item active"><div class="tl-dot"></div><div class="wk">WEEK 2</div><h5>Session 1 · US Market Reality</h5></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="wk">WEEK 4</div><h5>Session 2 · ICP & Positioning</h5></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="wk">WEEK 6</div><h5>Session 3 · Go-To-Market</h5></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="wk">WEEK 8</div><h5>Session 4 · Legal & Team</h5></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="wk">WEEK 10</div><h5>Session 5 · Fundraising</h5></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="wk">WEEK 12</div><h5>Session 6 · Pilots & Demo Prep</h5></div>
-    <div class="tl-item active"><div class="tl-dot"></div><div class="wk">WEEK 13–14</div><h5>🏆 Demo Day</h5></div>
   </div>
 </section>
 
 <!-- ── INVESTMENT ── -->
 <section class="investment" id="investment">
   <div class="section-tag">Investment</div>
-  <h2>Program Pricing</h2>
-  <p class="lead">The program fee covers all six sessions, materials, and Demo Day participation.</p>
+  <h2>One Startup Seat. Two Team Members. Full Program Access.</h2>
+  <p class="lead">The program fee covers access for up to two team members from the same startup, including all sessions, materials, async support, and Demo Day participation.</p>
   <div class="invest-grid">
-    <div class="invest-card">
-      <h3>Founder Seat</h3>
-      <div class="price">$1,200 <span>/ founder</span></div>
-      <ul class="features">
-        <li>6 live 90-minute virtual sessions</li>
-        <li>Founder Workbook with all frameworks</li>
-        <li>Access to all 6 session decks</li>
-        <li>Async support between sessions</li>
-        <li>Demo Day participation</li>
-        <li>Alumni network access</li>
-      </ul>
-    </div>
     <div class="invest-card featured">
-      <h3>Team Seat (2 Founders)</h3>
+      <h3>Startup Seat</h3>
       <div class="price">$2,000 <span>/ startup</span></div>
       <ul class="features">
-        <li>Everything in Founder Seat — for 2</li>
-        <li>2 seats at Demo Day</li>
-        <li>Co-founder alignment session (30 min)</li>
-        <li>Priority review of homework submissions</li>
-        <li>Featured in program portfolio</li>
-        <li>Save $400 vs. two individual seats</li>
+        <li>6 live 90-minute virtual sessions</li>
+        <li>Access for up to 2 team members from the same startup</li>
+        <li>Founder Workbook with practical frameworks</li>
+        <li>Access to all session decks and templates</li>
+        <li>Async support between sessions</li>
+        <li>Investor Demo Day participation</li>
+        <li>Alumni network access</li>
       </ul>
     </div>
   </div>
@@ -607,22 +634,25 @@ footer p { font-size: .82rem; color: var(--grey); font-weight: 300; opacity: .6;
 <!-- ── FAQ ── -->
 <section class="faq" id="faq">
   <div class="section-tag">FAQ</div>
-  <h2>Common Questions</h2>
+  <h2>Common Questions Before You Apply</h2>
   <div class="faq-list">
-    <div class="faq-item"><div class="faq-q">What timezone are sessions held in?</div><div class="faq-a">Sessions are scheduled to accommodate multiple international time zones. The exact schedule is confirmed after participant selection based on the group's locations. Most sessions run in a US morning / Asia-Europe evening window.</div></div>
-    <div class="faq-item"><div class="faq-q">Do I need to be incorporated in the US already?</div><div class="faq-a">No. Many founders join before incorporating — we cover the US entity decision in Session 4. However, you should have paying customers or strong early traction before applying.</div></div>
-    <div class="faq-item"><div class="faq-q">How much time per week does this require?</div><div class="faq-a">Expect 3–5 hours per week: 90 minutes for the live session every two weeks, plus 2–4 hours for homework. Homework is real work — not busywork.</div></div>
-    <div class="faq-item"><div class="faq-q">What happens if I miss a session?</div><div class="faq-a">Sessions are recorded. Missing one is manageable — missing two is grounds for removal from the program. We enforce attendance because the peer dynamic only works when everyone shows up.</div></div>
-    <div class="faq-item"><div class="faq-q">Is Demo Day only for investors?</div><div class="faq-a">Demo Day is primarily investor-facing, but you may invite up to 2 guests. The audience is curated and kept small to maximize quality of investor interactions.</div></div>
-    <div class="faq-item"><div class="faq-q">What industries do you accept?</div><div class="faq-a">We focus on B2B SaaS and tech-enabled services. We do not currently accept B2C consumer products, hardware-only startups, or crypto/web3 projects.</div></div>
-    <div class="faq-item"><div class="faq-q">When is the application deadline?</div><div class="faq-a">Rolling applications are accepted until the program is full (maximum 10 startups). We recommend applying early as spots fill on a first-accepted basis.</div></div>
+    <div class="faq-item"><div class="faq-q">What timezone are sessions held in?</div><div class="faq-a">Sessions are typically scheduled in Pacific Time, with timing selected to support participation from multiple regions. Final session timings will be shared before the cohort begins.</div></div>
+    <div class="faq-item"><div class="faq-q">Do I need to be incorporated in the US already?</div><div class="faq-a">No. You do not need to be incorporated in the US before joining. One of the sessions will help you understand entity options, legal readiness, and when it makes sense to set up a US presence.</div></div>
+    <div class="faq-item"><div class="faq-q">How much time per week does this require?</div><div class="faq-a">Expect around 2–3 hours per week, including the live session weeks, homework, and applying the frameworks to your business.</div></div>
+    <div class="faq-item"><div class="faq-q">What happens if I miss a session?</div><div class="faq-a">Sessions will be recorded where possible, and materials will be shared. However, founders are encouraged to attend live to get the full value from mentor feedback and peer discussion.</div></div>
+    <div class="faq-item"><div class="faq-q">Is Demo Day only for investors?</div><div class="faq-a">Demo Day is designed to introduce founders to a curated audience of investors, angels, operators, and ecosystem partners.</div></div>
+    <div class="faq-item"><div class="faq-q">What industries do you accept?</div><div class="faq-a">We primarily accept B2B SaaS, enterprise tech, AI, cybersecurity, deeptech, and tech-enabled startups preparing to enter or expand in the US market.</div></div>
+    <div class="faq-item"><div class="faq-q">When is the application deadline?</div><div class="faq-a">Applications are reviewed on a rolling basis until the cohort is full. Since seats are limited to up to 20 startups, early applications are encouraged.</div></div>
+    <div class="faq-item"><div class="faq-q">Can two people from the same startup attend?</div><div class="faq-a">Yes. The $2,000 startup fee includes access for up to two team members from the same company.</div></div>
+    <div class="faq-item"><div class="faq-q">Is this program virtual or in person?</div><div class="faq-a">The core program is virtual, with six live 90-minute sessions over 12 weeks. Select in-person opportunities may be offered separately based on cohort interest and availability.</div></div>
+    <div class="faq-item"><div class="faq-q">Will Venture Dock help with introductions in the US?</div><div class="faq-a">Venture Dock gives founders access to relevant mentors, operators, investors, and ecosystem partners. Introductions may be facilitated where there is a clear fit, but the program does not guarantee customer, investor, or funding outcomes.</div></div>
   </div>
 </section>
 
 <!-- ── CTA BANNER ── -->
 <div class="cta-banner">
-  <h2>Apply to the Market Access Program</h2>
-  <p>Applications are open. Spots are limited to 10 founders per program.</p>
+  <h2>Apply to the US Market Readiness Program</h2>
+  <p>Applications are open for the next cohort. Seats are limited to up to 20 startups to keep the experience focused and high value.</p>
   <a href="apply.html" class="btn-midnight">Submit Your Application →</a>
 </div>
 
@@ -630,7 +660,7 @@ footer p { font-size: .82rem; color: var(--grey); font-weight: 300; opacity: .6;
 <footer>
   <div class="footer-logo">
     <img src="assets/logo-white.png" alt="Venture Dock">
-    <p style="margin-top:.5rem">Global Innovation Program · Market Access Program</p>
+    <p style="margin-top:.5rem">US Market Readiness Program for Global Founders</p>
   </div>
   <p>© 2026 Venture Dock. All rights reserved.</p>
 </footer>
