@@ -1,679 +1,1018 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Venture Dock — US Market Entry Launchpad</title>
-<meta name="description" content="A 12-week virtual program helping global founders become US market ready before they land. 6 expert-led sessions, practical tools, and Demo Day with investors.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venture Dock | US Market Access Program</title>
+<meta name="description" content="Become US-ready in 3 months, guided by the VCs and corporate operators who will launch you. A 12-week program for global founders entering the US market, ending in an investor Demo Day.">
+<meta property="og:title" content="Venture Dock | US Market Access Program">
+<meta property="og:description" content="Become US-ready in 3 months. Six expert-led sessions, up to $200K in partner credits, a US address, and a Demo Day we fill with investors.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://map.venturedock.com/">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ── Brand Fonts ──────────────────────────────────────────────────────── */
-@font-face {
-  font-family: 'Poppins';
-  src: url('assets/fonts/Poppins-Light.ttf') format('truetype');
-  font-weight: 300; font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('assets/fonts/Poppins-Regular.ttf') format('truetype');
-  font-weight: 400; font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('assets/fonts/Poppins-Medium.ttf') format('truetype');
-  font-weight: 500; font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('assets/fonts/Poppins-SemiBold.ttf') format('truetype');
-  font-weight: 600; font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('assets/fonts/Poppins-ExtraBold.ttf') format('truetype');
-  font-weight: 800; font-style: normal;
-}
-@font-face {
-  font-family: 'SourceSerif';
-  src: url('assets/fonts/SourceSerifVariable-Roman.otf') format('opentype');
-  font-weight: 100 900; font-style: normal;
-}
-@font-face {
-  font-family: 'Athelas';
-  src: url('assets/fonts/Athelas-Italic.ttf') format('truetype');
-  font-weight: 400; font-style: italic;
-}
+  :root{
+    --ink:#1F2430; --body:#4A5560; --faint:#8A9590;
+    --green:#3D716A; --green-deep:#2F5A55; --green-soft:#DFEDE6;
+    --navy:#1B314C;
+    --plum:#7C4FA8; --plum-soft:#EBE3F6;
+    --peach:#D9603B; --peach-soft:#FBEDE2;
+    --card:#FFFFFF; --line:#E4E9E5; --line-strong:#CDD6D0; --bg:#F1F3F2;
+    --water:#9FC4B8;
+    --flag-blue:#0A3161; --flag-red:#B31942;
+    --r:22px; --r-sm:14px;
+    --shadow:0 18px 50px -18px rgba(31,36,48,.14);
+    --shadow-lift:0 26px 60px -20px rgba(31,36,48,.22);
+    --sans:'Poppins',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --serif:'Source Serif 4',Georgia,serif;
+    --maxw:1160px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--green-soft);color:var(--green-deep)}
 
-/* ── Brand Palette ────────────────────────────────────────────────────── */
-:root {
-  --teal:    #3B706A;   /* primary */
-  --teal-dk: #2d5550;   /* hover/dark teal */
-  --midnight:#2E3A4F;   /* dark backgrounds */
-  --plum:    #6C4F73;   /* accent */
-  --apricot: #FFECD4;   /* warm accent/CTA */
-  --apricot-dk: #f5d5b0;
-  --ice:     #F2F4F8;   /* light backgrounds */
-  --grey:    #B0B3B8;   /* neutral grey */
-  --white:   #FFFFFF;
-  --dkgray:  #2E3A4F;
-  --gray:    #64748B;
-  --border:  #E4E8EF;
+  /* ---------- ambient ---------- */
+  .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(720px 480px at 6% -4%, rgba(148,186,168,.34), transparent 62%),
+      radial-gradient(820px 640px at 88% 42%, rgba(176,148,206,.18), transparent 64%),
+      radial-gradient(700px 560px at 62% 96%, rgba(233,152,110,.18), transparent 62%);}
+  .ambient::after{content:'';position:absolute;inset:0;
+    background-image:radial-gradient(rgba(31,36,48,.05) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.10) 42%, transparent 72%);
+    -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.10) 42%, transparent 72%);}
 
-  --font-body: 'Poppins', system-ui, sans-serif;
-  --font-head: 'SourceSerif', Georgia, serif;
-  --font-italic: 'Athelas', Georgia, serif;
-}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px;position:relative;z-index:2}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font-body);
-  font-weight: 300;
-  color: var(--dkgray);
-  background: #fff;
-  line-height: 1.6;
-}
-a { color: var(--teal); text-decoration: none; }
-h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.2; }
+  /* ---------- type ---------- */
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--green);display:inline-block;margin-bottom:14px}
+  h1{font-weight:600;letter-spacing:-.02em;line-height:1.1;font-size:clamp(34px,5.2vw,58px)}
+  h2{font-weight:600;letter-spacing:-.015em;line-height:1.12;font-size:clamp(27px,3.7vw,42px)}
+  h3{font-weight:600;font-size:17px;letter-spacing:-.005em;line-height:1.35}
+  .em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--green)}
+  /* "US-ready": solid flag-blue type, embossed, over a soft flag band */
+  .usa{
+    position:relative;display:inline-block;isolation:isolate;
+    font-family:var(--serif);font-style:italic;font-weight:600;
+    color:var(--flag-blue);white-space:nowrap;padding:0 .12em 0 .06em;
+    text-shadow:0 1px 0 rgba(255,255,255,.95), 0 -1px 0 rgba(10,49,97,.12);
+  }
+  .usa::before{
+    content:'';position:absolute;inset:.12em -.05em .1em .02em;z-index:-1;border-radius:.09em;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%230A3161'/%3E%3Cg fill='%23fff'%3E%3Ccircle cx='5' cy='4' r='2'/%3E%3Ccircle cx='15' cy='4' r='2'/%3E%3Ccircle cx='25' cy='4' r='2'/%3E%3Ccircle cx='35' cy='4' r='2'/%3E%3Ccircle cx='45' cy='4' r='2'/%3E%3Ccircle cx='55' cy='4' r='2'/%3E%3Ccircle cx='10' cy='12' r='2'/%3E%3Ccircle cx='20' cy='12' r='2'/%3E%3Ccircle cx='30' cy='12' r='2'/%3E%3Ccircle cx='40' cy='12' r='2'/%3E%3Ccircle cx='50' cy='12' r='2'/%3E%3Ccircle cx='5' cy='20' r='2'/%3E%3Ccircle cx='15' cy='20' r='2'/%3E%3Ccircle cx='25' cy='20' r='2'/%3E%3Ccircle cx='35' cy='20' r='2'/%3E%3Ccircle cx='45' cy='20' r='2'/%3E%3Ccircle cx='55' cy='20' r='2'/%3E%3Ccircle cx='10' cy='28' r='2'/%3E%3Ccircle cx='20' cy='28' r='2'/%3E%3Ccircle cx='30' cy='28' r='2'/%3E%3Ccircle cx='40' cy='28' r='2'/%3E%3Ccircle cx='50' cy='28' r='2'/%3E%3Ccircle cx='5' cy='36' r='2'/%3E%3Ccircle cx='15' cy='36' r='2'/%3E%3Ccircle cx='25' cy='36' r='2'/%3E%3Ccircle cx='35' cy='36' r='2'/%3E%3Ccircle cx='45' cy='36' r='2'/%3E%3Ccircle cx='55' cy='36' r='2'/%3E%3C/g%3E%3C/svg%3E"),
+      repeating-linear-gradient(180deg,#B31942 0 14.28%,#FFFFFF 14.28% 28.57%);
+    background-size:24% 52%, 100% 100%;
+    background-position:0 0, 0 0;
+    background-repeat:no-repeat, repeat;
+    opacity:.16;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 10%,#000 90%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 10%,#000 90%,transparent 100%);
+  }
 
-/* ── NAV ── */
-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: var(--midnight);
-  padding: 0 6%;
-  display: flex; align-items: center; justify-content: space-between; height: 68px;
-  box-shadow: 0 2px 20px rgba(0,0,0,.25);
-}
-.nav-logo img { height: 32px; display: block; }
-.nav-links { display: flex; gap: 2rem; align-items: center; }
-.nav-links a {
-  color: var(--grey); font-family: var(--font-body);
-  font-weight: 400; font-size: .88rem; letter-spacing: .02em;
-  transition: color .2s;
-}
-.nav-links a:hover { color: var(--white); }
-.nav-cta {
-  background: var(--teal); color: var(--white) !important;
-  padding: .5rem 1.2rem; border-radius: 6px;
-  font-weight: 600 !important; font-size: .85rem !important;
-  transition: background .2s !important;
-}
-.nav-cta:hover { background: var(--teal-dk) !important; }
+  section{position:relative;z-index:2}
+  .sec{padding:96px 0}
+  .sec-head{max-width:720px;margin-bottom:52px}
 
-/* ── HERO ── */
-.hero {
-  background: var(--midnight);
-  background-image: radial-gradient(ellipse at 65% 40%, #3a4f6a 0%, var(--midnight) 65%);
-  min-height: 90vh; display: flex; align-items: center;
-  padding: 90px 10% 80px;
-}
-.hero-inner { max-width: 680px; }
-.hero-tag {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: rgba(59,112,106,.2); border: 1px solid rgba(59,112,106,.4);
-  color: #a8c5c2; font-size: .78rem; letter-spacing: .12em;
-  text-transform: uppercase; padding: .35rem 1rem; border-radius: 20px;
-  margin-bottom: 1.6rem; font-family: var(--font-body); font-weight: 500;
-}
-.hero-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
-.hero h1 {
-  font-family: var(--font-head);
-  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
-  color: var(--white); font-weight: 800;
-  margin-bottom: 1rem; line-height: 1.1;
-}
-.hero h1 em {
-  font-family: var(--font-italic);
-  font-style: italic; color: #a8c5c2; font-weight: 400;
-}
-.hero p {
-  font-size: 1.1rem; color: var(--grey); line-height: 1.8;
-  margin-bottom: 2.2rem; max-width: 540px; font-weight: 300;
-}
-.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-.btn-primary {
-  background: var(--teal); color: var(--white); font-weight: 600;
-  padding: .9rem 2.2rem; border-radius: 8px; font-size: 1rem;
-  transition: background .2s, transform .1s; display: inline-block;
-  font-family: var(--font-body);
-}
-.btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); }
-.btn-secondary {
-  background: transparent; color: var(--grey); font-weight: 400;
-  padding: .9rem 2.2rem; border-radius: 8px; font-size: 1rem;
-  border: 1px solid rgba(176,179,184,.3);
-  transition: border-color .2s, color .2s; display: inline-block;
-  font-family: var(--font-body);
-}
-.btn-secondary:hover { border-color: var(--grey); color: var(--white); }
-.hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; }
-.hero-stat .num {
-  font-family: var(--font-head); font-size: 2.6rem; font-weight: 800;
-  color: var(--white); line-height: 1;
-}
-.hero-stat .lbl {
-  font-size: .78rem; color: var(--grey); font-weight: 300;
-  letter-spacing: .04em; margin-top: .25rem;
-}
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;
+    font-family:var(--sans);font-weight:600;font-size:14.5px;border-radius:999px;padding:14px 28px;
+    transition:transform .12s, box-shadow .12s, background .15s, color .15s, border-color .15s}
+  .btn:focus-visible{outline:3px solid rgba(61,113,106,.45);outline-offset:2px}
+  .btn.primary{background:var(--green);color:#fff}
+  .btn.primary:hover{background:var(--green-deep);transform:translateY(-1px);box-shadow:0 12px 26px -10px rgba(61,113,106,.55)}
+  .btn.ghost{background:#fff;border:1.5px solid var(--line-strong);color:var(--body)}
+  .btn.ghost:hover{border-color:var(--green);color:var(--green)}
+  .btn.sm{padding:10px 20px;font-size:13.5px}
 
-/* ── SECTION BASE ── */
-section { padding: 88px 10%; }
-.section-tag {
-  font-family: var(--font-body); font-size: .72rem; font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase;
-  color: var(--teal); margin-bottom: .75rem;
-  display: flex; align-items: center; gap: .5rem;
-}
-.section-tag::before {
-  content: ''; display: block; width: 20px; height: 2px; background: var(--teal);
-}
-h2 {
-  font-family: var(--font-head);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--midnight); margin-bottom: 1rem;
-}
-.lead {
-  font-size: 1.05rem; color: var(--gray); line-height: 1.8;
-  max-width: 640px; margin-bottom: 2.8rem; font-weight: 300;
-}
-.callout-italic {
-  font-family: var(--font-italic);
-  font-style: italic; font-size: 1.15rem;
-  color: var(--teal); line-height: 1.7;
-}
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:60;background:rgba(241,243,242,.82);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;
+    max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  .wordmark{display:flex;align-items:baseline;font-size:25px;line-height:1;font-family:var(--serif)}
+  .wordmark .lite{font-style:italic;font-weight:400;color:var(--navy)}
+  .wordmark .bold{font-weight:700;color:var(--green)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--body);transition:color .15s}
+  .nav-links a:hover{color:var(--green)}
+  .menu-btn{display:none;background:#fff;border:1.5px solid var(--line-strong);border-radius:10px;
+    padding:9px 11px;cursor:pointer;color:var(--ink)}
+  .mobile-menu{display:none;border-top:1px solid var(--line);background:rgba(241,243,242,.97);padding:14px 26px 22px}
+  .mobile-menu.on{display:block}
+  .mobile-menu a{display:block;padding:11px 0;font-size:15px;font-weight:500;color:var(--body);border-bottom:1px solid var(--line)}
+  .mobile-menu .btn{margin-top:16px;width:100%}
 
-/* ── PROBLEMS ── */
-.problems { background: var(--ice); }
-.problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
-.problem-card {
-  background: #fff; border-radius: 12px; padding: 1.6rem;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 10px rgba(46,58,79,.06);
-  transition: box-shadow .2s, transform .2s;
-}
-.problem-card:hover { box-shadow: 0 8px 24px rgba(59,112,106,.12); transform: translateY(-2px); }
-.problem-card .icon { font-size: 1.6rem; margin-bottom: .8rem; }
-.problem-card h4 {
-  font-family: var(--font-head); font-size: 1rem;
-  color: var(--midnight); margin-bottom: .5rem;
-}
-.problem-card p { font-size: .88rem; color: var(--gray); line-height: 1.65; font-weight: 300; }
+  /* ---------- hero ---------- */
+  .hero{padding:74px 0 20px}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
+  .coord{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--faint);margin-bottom:18px}
+  .coord b{color:var(--green);font-weight:500}
+  .hero h1{margin-bottom:22px}
+  .hero .sub{font-size:17px;color:var(--body);line-height:1.7;max-width:54ch;margin-bottom:32px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:58px;
+    border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong)}
+  .hstat{padding:22px 20px 22px 0}
+  .hstat:not(:first-child){padding-left:24px;border-left:1px solid var(--line)}
+  .hstat .n{font-size:27px;font-weight:600;letter-spacing:-.02em;line-height:1}
+  .hstat .l{font-size:12.5px;color:var(--faint);margin-top:7px;line-height:1.35}
 
-/* ── FORMAT ── */
-.format-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 2.2rem; }
-.format-card {
-  background: var(--midnight); border-radius: 12px; padding: 1.8rem 1.4rem;
-  text-align: center;
-}
-.format-card .num {
-  font-family: var(--font-head); font-size: 2.6rem; font-weight: 800;
-  color: #a8c5c2; line-height: 1;
-}
-.format-card .lbl { font-size: .82rem; color: var(--grey); margin-top: .4rem; font-weight: 300; }
+  /* route card */
+  .route-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);padding:30px 28px}
+  .route-card .rc-top{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--faint);margin-bottom:24px}
+  .waypoint{display:flex;gap:15px;padding:14px 0;position:relative}
+  .waypoint:not(:last-child)::after{content:'';position:absolute;left:12px;top:40px;bottom:-14px;width:2px;
+    background:linear-gradient(var(--water),var(--green));opacity:.6}
+  .wp-node{flex:0 0 26px;height:26px;border-radius:50%;border:2px solid var(--green);background:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;
+    font-weight:700;color:var(--green);z-index:2;margin-top:1px}
+  .wp-body h4{font-size:15px;font-weight:600;margin-bottom:4px}
+  .wp-body p{font-size:13px;color:var(--body);line-height:1.6}
 
-/* ── REALITY STATS BANNER ── */
-.reality { background: #fff; }
-.reality-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 2.2rem; }
-.reality-card {
-  background: var(--ice); border-radius: 12px; padding: 1.8rem 1.6rem;
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--teal);
-}
-.reality-card .big {
-  font-family: var(--font-head); font-size: 2.2rem; font-weight: 800;
-  color: var(--teal); line-height: 1.1; margin-bottom: .6rem;
-}
-.reality-card p { font-size: .9rem; color: var(--gray); line-height: 1.6; font-weight: 300; }
-.reality-transition {
-  font-family: var(--font-italic); font-style: italic;
-  font-size: 1.15rem; color: var(--teal); line-height: 1.7;
-  margin-top: 2.2rem; max-width: 720px;
-}
+  /* ---------- generic cards ---------- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .ic{width:42px;height:42px;border-radius:12px;background:var(--green-soft);color:var(--green);
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .ic.plum{background:var(--plum-soft);color:var(--plum)}
+  .ic.peach{background:var(--peach-soft);color:var(--peach)}
+  .pill{display:inline-flex;align-items:center;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.1em;text-transform:uppercase;font-weight:500;padding:5px 12px;border-radius:999px}
+  .pill.green{background:var(--green-soft);color:var(--green)}
+  .pill.plum{background:var(--plum-soft);color:var(--plum)}
+  .pill.peach{background:var(--peach-soft);color:var(--peach)}
 
-/* ── OUTCOMES (What You Walk Away With) ── */
-.outcomes { background: var(--ice); }
-.outcome-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 2.2rem; }
-.outcome-card {
-  background: #fff; border-radius: 12px; padding: 1.6rem;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 10px rgba(46,58,79,.06);
-  transition: box-shadow .2s, transform .2s;
-}
-.outcome-card:hover { box-shadow: 0 8px 24px rgba(59,112,106,.12); transform: translateY(-2px); }
-.outcome-card .o-num {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; border-radius: 9px;
-  background: var(--teal); color: var(--white);
-  font-family: var(--font-head); font-weight: 800; font-size: 1rem;
-  margin-bottom: .9rem;
-}
-.outcome-card h4 { font-family: var(--font-head); font-size: 1rem; color: var(--midnight); margin-bottom: .5rem; }
-.outcome-card p { font-size: .88rem; color: var(--gray); line-height: 1.65; font-weight: 300; }
+  /* crossing */
+  .cross-card{padding:30px 28px 32px;transition:transform .18s, box-shadow .18s}
+  .cross-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+  .cross-card .step{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--faint);
+    margin:20px 0 8px}
+  .cross-card h3{font-size:20px;margin-bottom:6px}
+  .cross-card .kicker{font-size:13.5px;color:var(--green);font-weight:500;margin-bottom:12px}
+  .cross-card p{font-size:14px;color:var(--body);line-height:1.68}
 
-/* ── CURRICULUM ── */
-.curriculum { background: #fff; }
-.sessions-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.2rem; }
-.session-row {
-  display: grid; grid-template-columns: 100px 1fr auto;
-  align-items: start; gap: 1.4rem;
-  background: var(--ice); border-radius: 12px; padding: 1.3rem 1.6rem;
-  border: 1px solid var(--border);
-  transition: box-shadow .2s;
-}
-.session-row:hover { box-shadow: 0 4px 18px rgba(59,112,106,.1); }
-.session-badge {
-  background: var(--teal); color: var(--white); border-radius: 10px;
-  text-align: center; padding: .6rem .4rem;
-}
-.session-badge .s-num {
-  font-family: var(--font-head); font-size: 1.6rem;
-  font-weight: 800; color: rgba(255,255,255,.9); display: block;
-}
-.session-badge .s-wk { font-size: .7rem; opacity: .7; letter-spacing: .04em; font-weight: 300; }
-.session-info h4 {
-  font-family: var(--font-head); font-size: 1.05rem;
-  color: var(--midnight); margin-bottom: .35rem;
-}
-.session-info p { font-size: .88rem; color: var(--gray); line-height: 1.6; font-weight: 300; }
-.session-tag {
-  background: rgba(59,112,106,.1); color: var(--teal);
-  font-size: .72rem; font-weight: 600; padding: .25rem .8rem;
-  border-radius: 20px; white-space: nowrap; align-self: flex-start;
-  letter-spacing: .04em;
-}
-.demo-day-row {
-  background: var(--midnight); border-radius: 12px; padding: 1.5rem 1.8rem;
-  display: flex; align-items: center; gap: 1.5rem; margin-top: 1rem;
-}
-.demo-day-row .trophy { font-size: 2rem; }
-.demo-day-row h4 { font-family: var(--font-head); color: var(--white); font-size: 1.15rem; }
-.demo-day-row p { color: var(--grey); font-size: .88rem; margin-top: .2rem; font-weight: 300; }
+  /* why */
+  .why-card{padding:26px 24px}
+  .why-card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--faint);margin:18px 0 8px}
+  .why-card h3{margin-bottom:8px}
+  .why-card p{font-size:13.5px;color:var(--body);line-height:1.65}
 
-/* ── MENTORS ── */
-.mentors { background: var(--ice); }
-.mentor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.2rem; }
-.mentor-card {
-  background: #fff; border-radius: 12px; padding: 1.6rem;
-  border: 1px solid var(--border); text-align: center;
-  box-shadow: 0 2px 10px rgba(46,58,79,.06);
-}
-.mentor-avatar {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: var(--teal); color: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-head); font-size: 1.1rem; font-weight: 700;
-  margin: 0 auto 1rem;
-}
-.mentor-card h4 { font-family: var(--font-head); font-size: .95rem; color: var(--midnight); }
-.mentor-card .role { font-size: .82rem; color: var(--gray); margin-top: .3rem; line-height: 1.5; font-weight: 300; }
-.mentor-card .focus {
-  font-size: .75rem; color: var(--teal); background: rgba(59,112,106,.08);
-  padding: .25rem .8rem; border-radius: 20px;
-  display: inline-block; margin-top: .8rem; font-weight: 500;
-}
+  /* perks */
+  .perk-hero{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;margin-bottom:44px}
+  .upto{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--faint);margin-bottom:6px}
+  .bignum{font-size:clamp(64px,9vw,104px);font-weight:600;letter-spacing:-.04em;line-height:.9;color:var(--green)}
+  .bignum sup{font-size:.36em;vertical-align:super;font-weight:500}
+  .footnote{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--faint);margin-top:22px}
 
-/* ── WHO IT'S FOR ── */
-.criteria-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
-.criteria-box { border-radius: 12px; padding: 1.8rem; }
-.criteria-box.good { background: rgba(59,112,106,.06); border: 1px solid rgba(59,112,106,.25); }
-.criteria-box.bad  { background: rgba(108,79,115,.06); border: 1px solid rgba(108,79,115,.2); }
-.criteria-box h4 { font-family: var(--font-head); font-size: .95rem; font-weight: 700; margin-bottom: 1rem; }
-.criteria-box.good h4 { color: var(--teal); }
-.criteria-box.bad  h4 { color: var(--plum); }
-.criteria-box ul { list-style: none; }
-.criteria-box ul li {
-  font-size: .88rem; color: var(--dkgray); padding: .4rem 0;
-  border-bottom: 1px solid rgba(0,0,0,.06); line-height: 1.6; font-weight: 300;
-}
-.criteria-box ul li:last-child { border-bottom: none; }
-.criteria-box.good li::before { content: "✓ "; color: var(--teal); font-weight: 700; }
-.criteria-box.bad  li::before { content: "✗ "; color: var(--plum); font-weight: 700; }
+  /* soft landing */
+  .soft{padding:32px 30px;display:flex;gap:20px;align-items:flex-start}
+  .soft h3{font-size:19px;margin-bottom:10px}
+  .soft p{font-size:14px;color:var(--body);line-height:1.68;margin-bottom:16px}
 
-/* ── INVESTMENT ── */
-.investment { background: var(--ice); }
-.invest-grid { display: flex; justify-content: center; margin-top: 2rem; }
-.invest-card {
-  background: #fff; border-radius: 14px; padding: 2.2rem;
-  border: 2px solid var(--teal);
-  box-shadow: 0 4px 18px rgba(46,58,79,.08);
-  max-width: 460px; width: 100%;
-}
-.invest-card.featured {
-  border-color: var(--teal); border-width: 2px;
-  background: var(--midnight); color: var(--white);
-}
-.invest-card h3 { font-family: var(--font-head); font-size: 1.1rem; color: var(--midnight); }
-.invest-card.featured h3 { color: #a8c5c2; }
-.invest-card .price {
-  font-family: var(--font-head); font-size: 2.6rem; font-weight: 800;
-  color: var(--teal); margin: .6rem 0;
-}
-.invest-card.featured .price { color: var(--white); }
-.invest-card .price span { font-family: var(--font-body); font-size: .95rem; font-weight: 300; color: var(--gray); }
-.invest-card.featured .price span { color: var(--grey); }
-.invest-card .features { list-style: none; margin-top: 1.4rem; }
-.invest-card .features li {
-  font-size: .9rem; padding: .5rem 0;
-  border-bottom: 1px solid var(--border); font-weight: 300;
-  color: var(--dkgray);
-}
-.invest-card.featured .features li { border-bottom-color: rgba(176,179,184,.15); color: var(--grey); }
-.invest-card .features li:last-child { border: none; }
-.invest-card .features li::before { content: "✓  "; color: var(--teal); font-weight: 700; }
+  /* voyage rail */
+  .voyage{position:relative;margin:0 0 44px;overflow:hidden}
+  .voyage .wave-svg{position:absolute;left:0;right:0;bottom:25px;width:100%;height:14px;
+    overflow:visible;z-index:1}
+  .wave-path{stroke:var(--water);stroke-width:2.5;fill:none;stroke-linecap:round;opacity:.85}
+  .rail{position:relative;z-index:2;display:grid;grid-template-columns:repeat(7,1fr);align-items:end}
+  .stop{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .stop .dot{width:13px;height:13px;border-radius:50%;background:var(--green);
+    border:2.5px solid var(--green);flex:none}
+  .stop .slab{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--faint);
+    white-space:nowrap;line-height:1}
+  .stop.end .dot{background:#fff;border-color:var(--peach);box-shadow:0 0 0 5px rgba(217,96,59,.14)}
+  .stop.end .slab{color:var(--peach);font-weight:700}
+  .stop .boat{width:44px;height:44px;display:block;margin-bottom:4px;
+    animation:bob 3.4s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-5px) rotate(1.5deg)}}
 
-/* ── CALLOUT QUOTE ── */
-.quote-band { background: var(--teal); padding: 60px 10%; text-align: center; }
-.quote-band blockquote {
-  font-family: var(--font-italic); font-style: italic;
-  font-size: clamp(1.3rem, 3vw, 1.8rem); color: var(--white);
-  max-width: 760px; margin: 0 auto; line-height: 1.7;
-}
-.quote-band cite { display: block; margin-top: 1.2rem; font-family: var(--font-body); font-style: normal; font-size: .85rem; color: rgba(255,255,255,.6); font-weight: 300; letter-spacing: .06em; }
+  /* sessions */
+  .sess-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .sess{padding:26px 24px;position:relative}
+  .sess .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .sess .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--faint)}
+  .sess h3{margin-bottom:9px}
+  .sess p{font-size:13.5px;color:var(--body);line-height:1.65}
+  .demoday{margin-top:22px;padding:28px 30px;background:var(--card);border:1px solid var(--peach);
+    border-radius:var(--r);box-shadow:0 20px 50px -22px rgba(217,96,59,.35);display:flex;gap:20px;align-items:flex-start}
+  .demoday h3{font-size:19px;margin-bottom:8px}
+  .demoday p{font-size:14px;color:var(--body);line-height:1.68}
 
-/* ── FAQ ── */
-.faq { background: #fff; }
-.faq-list { margin-top: 2rem; display: flex; flex-direction: column; gap: .7rem; max-width: 800px; }
-.faq-item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-.faq-q {
-  padding: 1.15rem 1.5rem; font-family: var(--font-head);
-  font-weight: 700; font-size: .95rem; color: var(--midnight);
-  cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-  background: var(--ice);
-}
-.faq-q::after { content: "+"; font-size: 1.4rem; color: var(--teal); font-family: var(--font-body); font-weight: 300; }
-.faq-a { padding: 0 1.5rem 1.2rem; font-size: .9rem; color: var(--gray); line-height: 1.75; display: none; font-weight: 300; }
-.faq-item.open .faq-q::after { content: "−"; }
-.faq-item.open .faq-a { display: block; }
+  /* deliverables */
+  .deliv{display:grid;grid-template-columns:repeat(2,1fr);gap:0;background:#fff;
+    border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+  .deliv-item{display:flex;gap:16px;padding:26px 28px;border-bottom:1px solid var(--line)}
+  .deliv-item:nth-child(odd){border-right:1px solid var(--line)}
+  .deliv-item:nth-last-child(-n+2){border-bottom:none}
+  .deliv-n{width:30px;height:30px;border-radius:50%;background:var(--green-soft);color:var(--green);
+    font-family:var(--mono);font-size:12.5px;font-weight:700;display:flex;align-items:center;
+    justify-content:center;flex:none}
+  .deliv-item h3{font-size:15px;margin-bottom:5px}
+  .deliv-item p{font-size:13px;color:var(--body);line-height:1.6}
 
-/* ── CTA BANNER ── */
-.cta-banner { background: var(--apricot); padding: 72px 10%; text-align: center; }
-.cta-banner h2 { font-family: var(--font-head); color: var(--midnight); font-size: clamp(1.7rem, 3.5vw, 2.4rem); margin-bottom: .8rem; }
-.cta-banner p { font-family: var(--font-italic); font-style: italic; color: var(--midnight); opacity: .75; font-size: 1.1rem; margin-bottom: 2.2rem; }
-.btn-midnight {
-  background: var(--midnight); color: var(--white); font-weight: 600;
-  padding: .95rem 2.4rem; border-radius: 8px; font-size: 1rem;
-  display: inline-block; transition: background .2s;
-  font-family: var(--font-body);
-}
-.btn-midnight:hover { background: #1a2535; }
+  /* fit check */
+  .fit{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .fit-col{padding:30px 28px}
+  .fit-col ul{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:13px}
+  .fit-col li{display:flex;gap:11px;font-size:13.5px;color:var(--body);line-height:1.55}
+  .fit-col li::before{font-weight:700;flex:none;font-size:13px;margin-top:1px}
+  .fit-yes li::before{content:'✓';color:var(--green)}
+  .fit-no li::before{content:'✕';color:var(--peach)}
+  .fit-col.fit-no{background:linear-gradient(180deg,#fff,#FDF7F3)}
 
-/* ── FOOTER ── */
-footer {
-  background: var(--midnight); padding: 44px 10%;
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
-}
-footer .footer-logo img { height: 28px; }
-footer p { font-size: .82rem; color: var(--grey); font-weight: 300; opacity: .6; }
+  /* investment */
+  .inv{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:center}
+  .price-card{padding:34px 32px;border-color:var(--green);
+    box-shadow:0 24px 60px -20px rgba(61,113,106,.32)}
+  .price{font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1;margin:8px 0 6px}
+  .price .per{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.04em;font-weight:400}
+  .price-card ul{list-style:none;margin:22px 0;display:flex;flex-direction:column;gap:10px}
+  .price-card li{display:flex;gap:10px;font-size:13.5px;color:var(--body);line-height:1.5}
+  .price-card li::before{content:'✓';color:var(--green);font-weight:700;flex:none}
+  .price-card .btn{width:100%}
 
-/* ── RESPONSIVE ── */
-@media (max-width: 720px) {
-  section { padding: 60px 6%; }
-  nav { padding: 0 6%; }
-  .hero { padding: 60px 6%; min-height: auto; }
-  .criteria-grid { grid-template-columns: 1fr; }
-  .invest-grid { grid-template-columns: 1fr; }
-  .session-row { grid-template-columns: 80px 1fr; }
-  .session-tag { display: none; }
-  .nav-links { display: none; }
-  footer { flex-direction: column; text-align: center; }
-}
+  /* ecosystem */
+  .logos{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:34px}
+  .logo-tile{height:82px;border-radius:var(--r-sm);border:1.5px dashed var(--line-strong);background:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;
+    letter-spacing:.16em;color:#B6BFB9}
+
+  /* faq */
+  .faq-list{max-width:840px}
+  details{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);margin-bottom:12px;
+    box-shadow:0 10px 30px -22px rgba(31,36,48,.3)}
+  details[open]{border-color:var(--line-strong)}
+  summary{list-style:none;cursor:pointer;padding:20px 24px;font-size:15px;font-weight:600;
+    display:flex;align-items:center;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary:focus-visible{outline:3px solid rgba(61,113,106,.45);outline-offset:2px;border-radius:var(--r-sm)}
+  summary::after{content:'+';font-family:var(--mono);font-size:19px;color:var(--green);flex:none;line-height:1}
+  details[open] summary::after{content:'–'}
+  details p{padding:0 24px 22px;font-size:14px;color:var(--body);line-height:1.7;max-width:74ch}
+
+  /* final cta */
+  .final{background:var(--card);border:1px solid var(--line);border-radius:28px;
+    box-shadow:var(--shadow);padding:64px 48px;text-align:center}
+  .final h2{margin:14px auto 18px;max-width:18ch}
+  .final p{font-size:15.5px;color:var(--body);max-width:56ch;margin:0 auto 30px;line-height:1.7}
+  .final .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .final .strip{margin-top:30px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--faint)}
+
+  footer{border-top:1px solid var(--line);margin-top:96px;padding:44px 0 56px;position:relative;z-index:2}
+  .foot{display:flex;justify-content:space-between;align-items:flex-start;gap:34px;flex-wrap:wrap}
+  .foot .tag{font-size:13px;color:var(--faint);margin-top:10px}
+  .foot-links{display:flex;gap:26px;flex-wrap:wrap}
+  .foot-links a{font-size:13.5px;color:var(--body)}
+  .foot-links a:hover{color:var(--green)}
+  .copy{font-size:12.5px;color:var(--faint);margin-top:30px}
+
+
+  /* perks accordion */
+  .pstack{display:flex;flex-direction:column;gap:12px}
+  .pcat{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+    box-shadow:0 12px 34px -26px rgba(31,36,48,.34)}
+  .pcat[open]{border-color:var(--line-strong)}
+  .pcat>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:15px;
+    padding:18px 22px;background:#F7F9F8}
+  .pcat>summary::-webkit-details-marker{display:none}
+  .pcat>summary:focus-visible{outline:3px solid rgba(61,113,106,.45);outline-offset:-3px}
+  .pcat .pic{width:34px;height:34px;border-radius:10px;background:var(--green);color:#fff;
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .pcat .ptitle{flex:1;min-width:0}
+  .pcat .ptitle b{display:block;font-size:15px;font-weight:600;line-height:1.3}
+  .pcat .ptitle span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--faint)}
+  .pcat .pmark{color:var(--green);flex:none;display:flex;align-items:center;
+    transition:transform .22s ease}
+  .pcat[open] .pmark{transform:rotate(180deg)}
+  .pbody{padding:4px 22px 18px}
+  .prow{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .prow:last-child{border-bottom:none;padding-bottom:4px}
+  .plogo{width:48px;height:48px;border-radius:11px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;flex:none;padding:7px}
+  .plogo img{max-width:100%;max-height:100%;object-fit:contain}
+  .pmeta{min-width:0}
+  .pmeta h4{font-size:14.5px;font-weight:600;margin-bottom:5px;display:flex;align-items:center;
+    gap:9px;flex-wrap:wrap}
+  .pmeta p{font-size:13.5px;color:var(--body);line-height:1.65}
+  .pnote{border-left:3px solid var(--green);background:#F7F9F8;
+    border-radius:0 var(--r-sm) var(--r-sm) 0;padding:15px 18px;margin-top:22px;
+    font-size:13px;color:var(--body);line-height:1.7}
+
+  /* ecosystem logo wall */
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:0}
+  .logo-tile{height:106px;border-radius:var(--r-sm);border:1px solid var(--line);background:#fff;
+    display:flex;align-items:center;justify-content:center;padding:20px 26px;
+    box-shadow:0 10px 28px -26px rgba(31,36,48,.45);transition:transform .16s}
+  .logo-tile:hover{transform:translateY(-2px)}
+  .logo-tile img{max-height:100%;max-width:100%;object-fit:contain;
+    filter:saturate(.2) opacity(.78);transition:filter .22s}
+  .logo-tile:hover img{filter:none}
+
+  /* cohort photo wall */
+  .gwall{column-count:4;column-gap:14px}
+  .gfig{margin:0 0 14px;break-inside:avoid;position:relative;border-radius:var(--r-sm);
+    overflow:hidden;border:1px solid var(--line);background:#fff;
+    box-shadow:0 12px 30px -26px rgba(31,36,48,.5)}
+  .gfig img{width:100%;height:auto;display:block}
+  .gfig figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:#fff;background:linear-gradient(transparent,rgba(20,26,24,.8));
+    opacity:0;transition:opacity .22s}
+  .gfig:hover figcaption{opacity:1}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important}
+    html{scroll-behavior:auto}
+  }
+
+  @media (max-width:980px){
+    .hero-grid,.perk-hero,.inv{grid-template-columns:1fr;gap:38px}
+    .grid3,.sess-grid{grid-template-columns:1fr 1fr}
+    .logos{grid-template-columns:repeat(3,1fr)}
+    .gwall{column-count:3}
+    .pbody{padding:4px 18px 16px}
+    .nav-links{display:none}
+    .menu-btn{display:block}
+  }
+  @media (max-width:720px){
+    .sec{padding:70px 0}
+    .grid3,.grid2,.sess-grid,.fit,.deliv{grid-template-columns:1fr}
+    .deliv-item:nth-child(odd){border-right:none}
+    .deliv-item:nth-last-child(2){border-bottom:1px solid var(--line)}
+    .hero-stats{grid-template-columns:1fr 1fr}
+    .hstat:nth-child(3){border-left:none}
+    .hstat:nth-child(n+3){border-top:1px solid var(--line)}
+    .soft,.demoday{flex-direction:column}
+    .voyage{display:none}
+    .final{padding:44px 26px}
+    .logos{grid-template-columns:repeat(2,1fr)}
+    .gwall{column-count:2;column-gap:11px}
+    .gfig{margin-bottom:11px}
+  }
 </style>
 </head>
 <body>
+<div class="ambient"></div>
 
-<!-- ── NAV ── -->
-<nav>
-  <a href="#" class="nav-logo">
-    <img src="assets/logo-white.png" alt="Venture Dock">
-  </a>
-  <div class="nav-links">
-    <a href="#program">Program</a>
-    <a href="#curriculum">Curriculum</a>
-    <a href="#mentors">Mentors</a>
-    <a href="#investment">Investment</a>
+<header>
+  <nav class="nav">
+    <a href="#top" class="wordmark" aria-label="Venture Dock home"><span class="lite">venture</span><span class="bold">dock</span></a>
+    <div class="nav-links">
+      <a href="#program">The Program</a>
+      <a href="#why">Why Us</a>
+      <a href="#perks">Perks</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn primary sm" href="https://venturedock.fillout.com/t/ftRJcD2d35us">Apply now →</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#program">The Program</a>
+    <a href="#why">Why Us</a>
+    <a href="#perks">Perks</a>
     <a href="#faq">FAQ</a>
-    <a href="https://venturedock.fillout.com/t/ftRJcD2d35us" class="nav-cta">Apply Now →</a>
+    <a class="btn primary" href="https://venturedock.fillout.com/t/ftRJcD2d35us">Apply now →</a>
   </div>
-</nav>
+</header>
 
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">US Market Access Program for Global Founders</div>
-    <h1>A Structured Path into<br><em>the US Market</em></h1>
-    <p>Entering the US market without the right guidance can cost founders time, money, and momentum. Venture Dock's 12-week virtual program helps global founders become US market ready before they land — with expert-led sessions, practical tools, and access to a credible Silicon Valley network.</p>
-    <div class="hero-ctas">
-      <a href="https://venturedock.fillout.com/t/ftRJcD2d35us" class="btn-primary">Apply to the Program →</a>
-      <a href="#program" class="btn-secondary">See the Program</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">6</div><div class="lbl">Expert-Led Sessions</div></div>
-      <div class="hero-stat"><div class="num">12</div><div class="lbl">Weeks</div></div>
-      <div class="hero-stat"><div class="num">90</div><div class="lbl">Min / Session</div></div>
-      <div class="hero-stat"><div class="num">1</div><div class="lbl">Investor Demo Day</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ── REALITY STATS ── -->
-<section class="reality">
-  <div class="section-tag">The Reality of Selling in the US</div>
-  <h2>The Reality of Selling in the US</h2>
-  <p class="lead">Before you sell into the US, it helps to understand how US buyers actually buy. The data makes the case for preparing properly first.</p>
-  <div class="reality-grid">
-    <div class="reality-card"><div class="big">67%</div><p>of B2B buyers prefer a rep-free buying experience — so strong positioning and clear messaging need to be in place before outreach begins.</p></div>
-    <div class="reality-card"><div class="big">74%</div><p>of B2B buyer teams face unhealthy conflict during the buying decision — founders must understand buying committees, internal alignment, and decision dynamics.</p></div>
-    <div class="reality-card"><div class="big">2.5×</div><p>more likely to report a high-quality deal when buying groups reach consensus — which is why messaging, buyer alignment, and sales readiness matter.</p></div>
-  </div>
-  <p class="reality-transition">The US market rewards founders who understand buyers before they start selling.</p>
-</section>
-
-<!-- ── PROBLEMS ── -->
-<section class="problems" id="program">
-  <div class="section-tag">The Challenge</div>
-  <h2>Why Global Startups<br>Struggle in the US Market</h2>
-  <p class="lead">The US market is full of opportunity, but it is also complex, competitive, and expensive to enter without the right preparation. These are the most common mistakes global founders make — and the exact gaps this program helps solve.</p>
-  <div class="problem-grid">
-    <div class="problem-card"><div class="icon">🎯</div><h4>Wrong ICP</h4><p>Assuming your home-market customer profile will work in the US without testing buyer behavior, budget, and urgency.</p></div>
-    <div class="problem-card"><div class="icon">⏱</div><h4>Underestimating Sales Cycles</h4><p>Underestimating how long US enterprise sales, procurement, security review, and stakeholder alignment can take.</p></div>
-    <div class="problem-card"><div class="icon">💰</div><h4>Pricing Off-Benchmark</h4><p>Pricing without understanding US benchmarks, buyer expectations, and competitive alternatives.</p></div>
-    <div class="problem-card"><div class="icon">⚖️</div><h4>Legal & Operational Readiness</h4><p>Not being ready for US contracts, entity decisions, tax, compliance, IP, and customer onboarding requirements.</p></div>
-    <div class="problem-card"><div class="icon">🗺</div><h4>Treating the US as One Market</h4><p>Treating the US as one market instead of adapting by industry, region, buyer segment, and channel.</p></div>
-    <div class="problem-card"><div class="icon">🤝</div><h4>Premature US Hiring</h4><p>Hiring too early in the US before validating ICP, messaging, sales motion, and founder-led traction.</p></div>
-  </div>
-</section>
-
-<!-- ── QUOTE ── -->
-<div class="quote-band">
-  <blockquote>"Most international founders don't struggle in the US because of the product. They struggle because they enter with the wrong market playbook."</blockquote>
-  <cite>— Venture Dock Program Team</cite>
-</div>
-
-<!-- ── FORMAT ── -->
-<section>
-  <div class="section-tag">How the Program Works</div>
-  <h2>How the Program Works</h2>
-  <p class="lead">A structured 12-week virtual program designed for busy global founders preparing to enter the US market. Every session is practical, founder-focused, and built to help you apply the learning directly to your business.</p>
-  <div class="format-grid">
-    <div class="format-card"><div class="num">6</div><div class="lbl">Expert-Led Virtual Sessions</div></div>
-    <div class="format-card"><div class="num">90</div><div class="lbl">Minutes Each</div></div>
-    <div class="format-card"><div class="num">2</div><div class="lbl">Weeks Between — Time to Prepare</div></div>
-    <div class="format-card"><div class="num">12</div><div class="lbl">Weeks · Structured Market Readiness Journey</div></div>
-    <div class="format-card"><div class="num">1</div><div class="lbl">Investor Demo Day</div></div>
-    <div class="format-card"><div class="num">≤20</div><div class="lbl">Founders per Cohort</div></div>
-  </div>
-</section>
-
-<!-- ── CURRICULUM ── -->
-<section class="curriculum" id="curriculum">
-  <div class="section-tag">Curriculum</div>
-  <h2>Six Sessions. One Practical US Market Readiness Curriculum.</h2>
-  <p class="lead">Each session combines practical frameworks, mentor guidance, peer discussion, and a clear business deliverable founders can apply directly to their US market entry plan.</p>
-  <div class="sessions-list">
-    <div class="session-row">
-      <div class="session-badge"><span class="s-num">01</span><span class="s-wk">WEEK 2</span></div>
-      <div class="session-info"><h4>US Market Reality Check &amp; Readiness</h4><p>Diagnose your US readiness, understand where you stand today in plain language, and identify the single biggest gap between where you are and where you need to be.</p></div>
-      <div class="session-tag">Foundations</div>
-    </div>
-    <div class="session-row">
-      <div class="session-badge"><span class="s-num">02</span><span class="s-wk">WEEK 4</span></div>
-      <div class="session-info"><h4>ICP, Positioning &amp; Messaging</h4><p>Define a razor-sharp Ideal Customer Profile, craft a differentiated positioning statement, and build messaging that resonates with US buyers.</p></div>
-      <div class="session-tag">Customers</div>
-    </div>
-    <div class="session-row">
-      <div class="session-badge"><span class="s-num">03</span><span class="s-wk">WEEK 6</span></div>
-      <div class="session-info"><h4>US GTM &amp; Sales Motion</h4><p>Select your primary US GTM channel, design a sales motion that fits US buyers, and build a 90-day execution plan with the leading metrics that prove the engine works before you scale spend.</p></div>
-      <div class="session-tag">Execution</div>
-    </div>
-    <div class="session-row">
-      <div class="session-badge"><span class="s-num">04</span><span class="s-wk">WEEK 8</span></div>
-      <div class="session-info"><h4>Legal, Entity &amp; Operational Readiness</h4><p>Make the right entity and compliance decisions for your stage, and prepare for US contracts, tax basics, IP, and customer onboarding requirements.</p></div>
-      <div class="session-tag">Infrastructure</div>
-    </div>
-    <div class="session-row">
-      <div class="session-badge"><span class="s-num">05</span><span class="s-wk">WEEK 10</span></div>
-      <div class="session-info"><h4>US Sales, Procurement, Pilots &amp; Partnerships</h4><p>Navigate US procurement and security review, structure pilots that convert to contracts, and identify strategic partnerships that accelerate GTM without diluting focus.</p></div>
-      <div class="session-tag">Traction</div>
-    </div>
-    <div class="session-row">
-      <div class="session-badge"><span class="s-num">06</span><span class="s-wk">WEEK 12</span></div>
-      <div class="session-info"><h4>Fundraising &amp; Demo Day Readiness</h4><p>Assess your VC fundability, know your key metrics cold (CAC, LTV, burn multiple), build your investor outreach strategy, and rehearse your 5-minute investor pitch.</p></div>
-      <div class="session-tag">Investors</div>
-    </div>
-    <div class="demo-day-row">
-      <div class="trophy">🏆</div>
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
       <div>
-        <h4>Demo Day — Investor Showcase</h4>
-        <p>Week 12 · Each founder pitches 5 minutes to a curated audience of US investors, angels, operators, and ecosystem partners.</p>
+        <div class="coord">HOME COUNTRY &nbsp;→&nbsp; <b>N 37.77° · W 122.41°</b> &nbsp;SILICON VALLEY BOUND</div>
+        <h1>Become <span class="usa">US-ready</span> in 3 months, guided by the VCs and corporates who'll launch you.</h1>
+        <p class="sub">Venture Dock is the US market launchpad where investors and corporate operators prepare you, hand you their network, and fill Demo Day with more VCs, so you arrive in America already known, already backed, already moving.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="https://venturedock.fillout.com/t/ftRJcD2d35us">Apply to the next cohort →</a>
+          <a class="btn ghost" href="#program">See how it works</a>
+        </div>
+      </div>
+
+      <aside class="route-card">
+        <div class="rc-top">Your route into the US</div>
+        <div class="waypoint">
+          <div class="wp-node">01</div>
+          <div class="wp-body">
+            <h4>Get US-ready</h4>
+            <p>VCs and corporate operators make your ICP, pricing, GTM and pitch hold up in-market.</p>
+          </div>
+        </div>
+        <div class="waypoint">
+          <div class="wp-node">02</div>
+          <div class="wp-body">
+            <h4>Launch with a network</h4>
+            <p>Go live with warm introductions and a credible Silicon Valley network, not a cold start.</p>
+          </div>
+        </div>
+        <div class="waypoint">
+          <div class="wp-node">03</div>
+          <div class="wp-body">
+            <h4>Showcase on Demo Day</h4>
+            <p>We invite a room of VCs, angels and operators to watch you pitch. They come to you.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hstat"><div class="n">3 months</div><div class="l">To fully US-ready</div></div>
+      <div class="hstat"><div class="n">$200K</div><div class="l">In perks before you land</div></div>
+      <div class="hstat"><div class="n">≤20</div><div class="l">Founders per cohort</div></div>
+      <div class="hstat"><div class="n">1</div><div class="l">Investor Demo Day</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE CROSSING ================= -->
+<section class="sec" id="program">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The Crossing</span>
+      <h2>One program. Three moves that <span class="em">change everything</span>.</h2>
+      <p class="lede">Most programs teach. Venture Dock walks you across, from home market to a US launch that investors show up for.</p>
+    </div>
+
+    <div class="grid3">
+      <article class="card cross-card">
+        <div class="ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg>
+        </div>
+        <div class="step">01</div>
+        <h3>Prepare</h3>
+        <div class="kicker">VCs and corporates make you US-ready</div>
+        <p>Operators who've built and funded US companies pressure-test your ICP, pricing, GTM motion and pitch, until they hold up in front of real American buyers.</p>
+      </article>
+
+      <article class="card cross-card">
+        <div class="ic plum">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/></svg>
+        </div>
+        <div class="step">02</div>
+        <h3>Launch</h3>
+        <div class="kicker">Go live with a network, not a cold start</div>
+        <p>You enter the US with warm introductions, a credible Silicon Valley network, and the confidence that your playbook already works, because it was validated before you landed.</p>
+      </article>
+
+      <article class="card cross-card">
+        <div class="ic peach">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M6 3h12v6a6 6 0 0 1-12 0z"/><path d="M12 15v4M8 21h8"/></svg>
+        </div>
+        <div class="step">03</div>
+        <h3>Showcase</h3>
+        <div class="kicker">Demo Day, we bring the investors to you</div>
+        <p>On Demo Day we invite a curated room of VCs, angels, operators and ecosystem partners to watch you pitch. You stop chasing investors. They come to look.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY VENTURE DOCK ================= -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why Venture Dock</span>
+      <h2>Three months to compress <span class="em">three years</span> of guesswork.</h2>
+      <p class="lede">Most founders burn 18 months and a small fortune learning the US market the hard way: wrong ICP, mispriced, over-hired, out of runway. We get you there in 12 weeks, with a stronger network and the confidence to launch without setting money on fire.</p>
+    </div>
+
+    <div class="grid2">
+      <article class="card why-card">
+        <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <div class="tag">Save time</div>
+        <h3>12 weeks, not 18 months</h3>
+        <p>Skip the slow, expensive trial-and-error. A structured path gets you launch-ready in a single quarter.</p>
+      </article>
+
+      <article class="card why-card">
+        <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20"/><path d="M17 6.5c0-2-2.2-3-5-3s-5 .9-5 3 2 2.8 5 3.4 5 1.4 5 3.6-2.2 3-5 3-5-1-5-3"/></svg></div>
+        <div class="tag">Save money</div>
+        <h3>Avoid six-figure mistakes</h3>
+        <p>The cost of learning the US in-market (wrong hires, wrong pricing, wasted GTM spend) dwarfs the program fee.</p>
+      </article>
+
+      <article class="card why-card">
+        <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="tag">Launch with confidence</div>
+        <h3>A validated playbook</h3>
+        <p>You move on a plan that operators and investors have already stress-tested, not a hopeful guess.</p>
+      </article>
+
+      <article class="card why-card">
+        <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.5 18.3 12 21c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg></div>
+        <div class="tag">Stronger network</div>
+        <h3>Doors that open</h3>
+        <p>VCs, corporates, operators and a founder peer group: a network that keeps compounding after the program ends.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PERKS ================= -->
+<section class="sec" id="perks">
+  <div class="wrap">
+    <div class="perk-hero">
+      <div>
+        <span class="eyebrow">Perk Partners</span>
+        <div class="upto">Up to</div>
+        <div class="bignum">$200K</div>
+      </div>
+      <div>
+        <h2>In credits, <span class="em">before you even land</span>.</h2>
+        <p class="lede">The moment you join, your perk stack unlocks: cloud infrastructure, AI tools, banking, legal setup and go-to-market software. Real runway you can deploy from home, months before you set foot in the US.</p>
+      </div>
+    </div>
+
+    <div class="pstack">
+      <details class="pcat">
+        <summary>
+          <span class="pic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-8.97A6 6 0 0 0 6.3 9.5 4.25 4.25 0 0 0 7 19z"/></svg></span>
+          <span class="ptitle"><b>Cloud, AI and infrastructure</b><span>4 partners · up to $100K in credits</span></span>
+          <span class="pmark" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="pbody">
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/openai.png" alt="OpenAI logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>OpenAI</h4>
+              <p>Redeem $10K in API credits, a Tier 5 account upgrade, 3 months of ChatGPT Business (10 seats), priority support, and direct access to the OpenAI team.</p>
+            </div>
+          </div>
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/google-cloud.png" alt="Google Cloud logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>Google Cloud</h4>
+              <p>Up to $100K in Google Cloud credits.</p>
+            </div>
+          </div>
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/backblaze.png" alt="Backblaze logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>Backblaze</h4>
+              <p>Get up to $100,000 in storage credits, direct technical support, and pricing that still makes sense after the credits run out.</p>
+            </div>
+          </div>
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/ibm.png" alt="IBM logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>IBM</h4>
+              <p>Cloud credits, plus access to IBM sessions and technical experts.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="pcat">
+        <summary>
+          <span class="pic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v9M19 10v9M9 10v9M15 10v9M3 21h18"/></svg></span>
+          <span class="ptitle"><b>Banking and payments</b><span>1 partner · credits to offset fees</span></span>
+          <span class="pmark" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="pbody">
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/stripe.png" alt="Stripe logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>Stripe</h4>
+              <p>$1,500 in credits to offset fees across Stripe Payments, Connect, Billing, and more.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="pcat">
+        <summary>
+          <span class="pic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.5"/><path d="M22 20v-2a4 4 0 0 0-3-3.87"/></svg></span>
+          <span class="ptitle"><b>HR and recruiting</b><span>1 partner · setup fee waived</span></span>
+          <span class="pmark" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="pbody">
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/trinet.png" alt="TriNet logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>TriNet</h4>
+              <p>Waived setup fee, plus additional onboarding benefits.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="pcat">
+        <summary>
+          <span class="pic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></span>
+          <span class="ptitle"><b>Software and go-to-market</b><span>5 partners · up to 90% off</span></span>
+          <span class="pmark" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="pbody">
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/hubspot.png" alt="HubSpot logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>HubSpot</h4>
+              <p>Exclusive HubSpot for Startups discounts, up to 90% off in Year 1 depending on funding stage, with tiered benefits for startups under $2M raised, over $2M raised, and entrepreneurial organizations.</p>
+            </div>
+          </div>
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/notion.png" alt="Notion logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>Notion</h4>
+              <p>6 months of new Notion Business plans, with Notion AI included, free to try in full.</p>
+            </div>
+          </div>
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/devrev.png" alt="DevRev logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>DevRev</h4>
+              <p>12 months free, plus up to $10K in credits.</p>
+            </div>
+          </div>
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/zendesk.png" alt="Zendesk logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>Zendesk</h4>
+              <p>6 months of free access to the Zendesk Suite and Sales CRM.</p>
+            </div>
+          </div>
+          <div class="prow">
+            <div class="plogo"><img src="assets/perks/docsend.png" alt="DocSend logo" loading="lazy"></div>
+            <div class="pmeta">
+              <h4>DocSend</h4>
+              <p>Up to 90% off.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <p class="pnote">Redemption links and partner introductions are shared with founders after acceptance. Individual partner eligibility requirements apply, and the exact partner stack is finalized per cohort.</p>
+  </div>
+</section>
+
+<!-- ================= SOFT LANDING ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Soft Landing</span>
+      <h2>A US address and a community, at <span class="em">home-country prices</span>.</h2>
+      <p class="lede">You don't need to spend like a US company to look and operate like one. Venture Dock gives you the presence and the people from day one.</p>
+    </div>
+
+    <div class="grid2">
+      <article class="card soft">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h3>US virtual office address</h3>
+          <p>A credible US business presence for your customers, investors and incorporation, without the overhead of a US office. Show up as a US company from the first email.</p>
+          <span class="pill green">Priced for where you are today</span>
+        </div>
+      </article>
+
+      <article class="card soft">
+        <div class="ic plum"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.5"/><path d="M22 20v-2a4 4 0 0 0-3-3.87M16 3.5a4 4 0 0 1 0 7"/></svg></div>
+        <div>
+          <h3>A community that's already there</h3>
+          <p>Step into a ready-made network of cohort peers, alumni who've gone ahead of you, and mentors around you, warm from your very first session, not something you build alone.</p>
+          <span class="pill plum">Included from day one</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE 12 WEEKS ================= -->
+<section class="sec" id="curriculum">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The 12 Weeks</span>
+      <h2>Six working sessions. <span class="em">One <span class="usa">US-ready</span> company</span>.</h2>
+      <p class="lede">Every session is practical and founder-focused, with a real deliverable you apply straight to your business. Two weeks between each, time to do the work, not just watch.</p>
+    </div>
+
+    <div class="voyage" aria-hidden="true">
+      <svg class="wave-svg" viewBox="0 0 1000 16" preserveAspectRatio="none">
+        <path class="wave-path" d="M0 8 Q 41.6 0, 83.3 8 T 166.6 8 T 250 8 T 333.3 8 T 416.6 8 T 500 8 T 583.3 8 T 666.6 8 T 750 8 T 833.3 8 T 916.6 8 T 1000 8"/>
+      </svg>
+      <div class="rail">
+        <div class="stop"><span class="dot"></span><span class="slab">WEEK 2</span></div>
+        <div class="stop"><span class="dot"></span><span class="slab">WEEK 4</span></div>
+        <div class="stop"><span class="dot"></span><span class="slab">WEEK 6</span></div>
+        <div class="stop"><span class="dot"></span><span class="slab">WEEK 8</span></div>
+        <div class="stop"><span class="dot"></span><span class="slab">WEEK 10</span></div>
+        <div class="stop"><span class="dot"></span><span class="slab">WEEK 12</span></div>
+        <div class="stop end">
+          <svg class="boat" viewBox="0 0 64 64" fill="none">
+            <path d="M10 44h44l-6 10H16z" fill="#3D716A"/>
+            <path d="M32 8v34" stroke="#1F2430" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M34 12l14 22H34z" fill="#D9603B"/>
+            <path d="M30 18L18 34h12z" fill="#DFEDE6" stroke="#3D716A" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+          <span class="dot"></span><span class="slab">DEMO DAY</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sess-grid">
+      <article class="card sess">
+        <div class="top"><span class="num">01 · WEEK 2</span><span class="pill green">Foundations</span></div>
+        <h3>US Market Reality Check and Readiness</h3>
+        <p>Diagnose where you stand today in plain language, and pinpoint the single biggest gap between here and US-ready.</p>
+      </article>
+      <article class="card sess">
+        <div class="top"><span class="num">02 · WEEK 4</span><span class="pill green">Customers</span></div>
+        <h3>ICP, Positioning and Messaging</h3>
+        <p>Define a razor-sharp Ideal Customer Profile and build positioning that lands with US buyers.</p>
+      </article>
+      <article class="card sess">
+        <div class="top"><span class="num">03 · WEEK 6</span><span class="pill green">Execution</span></div>
+        <h3>US GTM and Sales Motion</h3>
+        <p>Pick your primary channel and build a 90-day plan with the metrics that prove the engine works.</p>
+      </article>
+      <article class="card sess">
+        <div class="top"><span class="num">04 · WEEK 8</span><span class="pill green">Infrastructure</span></div>
+        <h3>Legal, Entity and Operational Readiness</h3>
+        <p>Make the right entity, tax, IP and contract decisions for your stage, and when a US presence makes sense.</p>
+      </article>
+      <article class="card sess">
+        <div class="top"><span class="num">05 · WEEK 10</span><span class="pill green">Traction</span></div>
+        <h3>Sales, Procurement, Pilots and Partnerships</h3>
+        <p>Navigate procurement and security review, and structure pilots that convert into contracts.</p>
+      </article>
+      <article class="card sess">
+        <div class="top"><span class="num">06 · WEEK 12</span><span class="pill green">Investors</span></div>
+        <h3>Fundraising and Demo Day Readiness</h3>
+        <p>Know your metrics cold, build your outreach strategy and rehearse a 5-minute pitch that converts.</p>
+      </article>
+    </div>
+
+    <div class="demoday">
+      <div class="ic peach"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M6 3h12v6a6 6 0 0 1-12 0z"/><path d="M12 15v4M8 21h8"/></svg></div>
+      <div>
+        <h3>Demo Day, investor showcase</h3>
+        <p>Week 12 · Each founder pitches 5 minutes to a curated audience of US investors, angels, operators and ecosystem partners, invited for you.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── OUTCOMES (What You Walk Away With) ── -->
-<section class="outcomes">
-  <div class="section-tag">What You Walk Away With</div>
-  <h2>Build Your US Market Entry Plan Before You Land</h2>
-  <p class="lead">By the end of the program, founders will have a clearer US market strategy, stronger buyer messaging, and practical assets they can use immediately with customers, partners, and investors.</p>
-  <div class="outcome-grid">
-    <div class="outcome-card"><div class="o-num">1</div><h4>US Market Readiness Scorecard</h4><p>A clear view of where you stand today and what gaps need to be addressed before entering the US market.</p></div>
-    <div class="outcome-card"><div class="o-num">2</div><h4>Ideal Customer Profile &amp; Positioning Statement</h4><p>A sharper understanding of your target US buyer, use case, urgency, and differentiated positioning.</p></div>
-    <div class="outcome-card"><div class="o-num">3</div><h4>90-Day US GTM Plan</h4><p>A focused roadmap for your first US market moves, including channels, outreach, and success metrics.</p></div>
-    <div class="outcome-card"><div class="o-num">4</div><h4>Legal &amp; Operational Readiness Checklist</h4><p>A practical checklist covering entity, contracts, compliance, IP, tax basics, and customer onboarding readiness.</p></div>
-    <div class="outcome-card"><div class="o-num">5</div><h4>Pilot &amp; Procurement Readiness Plan</h4><p>A structured approach to designing pilots, navigating procurement, and converting early conversations into real opportunities.</p></div>
-    <div class="outcome-card"><div class="o-num">6</div><h4>Investor One-Pager &amp; Demo Day Pitch</h4><p>A refined investor narrative, one-pager, and 5-minute pitch for the final showcase.</p></div>
-  </div>
-</section>
-
-<!-- ── MENTORS ── -->
-<section class="mentors" id="mentors">
-  <div class="section-tag">Practitioner-Led Mentorship</div>
-  <h2>Learn from Operators, Investors &amp; GTM Leaders Who Understand the US Market</h2>
-  <p class="lead">Each session is designed to be led by experienced practitioners across GTM, sales, legal readiness, fundraising, partnerships, and US market expansion. The final mentor lineup will be announced before the cohort begins.</p>
-  <div class="mentor-grid">
-    <div class="mentor-card"><div class="mentor-avatar">GS</div><h4>GTM &amp; Sales</h4><div class="role">US go-to-market strategy &amp; sales motion design</div></div>
-    <div class="mentor-card"><div class="mentor-avatar">IP</div><h4>ICP &amp; Positioning</h4><div class="role">Buyer clarity, messaging &amp; differentiation</div></div>
-    <div class="mentor-card"><div class="mentor-avatar">LC</div><h4>Legal &amp; Compliance</h4><div class="role">Entity, contracts, IP &amp; operational readiness</div></div>
-    <div class="mentor-card"><div class="mentor-avatar">FR</div><h4>Fundraising</h4><div class="role">Investor readiness, metrics &amp; pitch coaching</div></div>
-    <div class="mentor-card"><div class="mentor-avatar">PP</div><h4>Partnerships &amp; Pilots</h4><div class="role">Procurement, pilots &amp; commercial traction</div></div>
-    <div class="mentor-card"><div class="mentor-avatar">LH</div><h4>Leadership &amp; Hiring</h4><div class="role">Cross-border teams &amp; US hiring strategy</div></div>
-  </div>
-</section>
-
-<!-- ── WHO IT'S FOR ── -->
-<section>
-  <div class="section-tag">Is This Program Right for You?</div>
-  <h2>Built for Global Founders Ready to Enter or Expand in the US</h2>
-  <p class="lead">Venture Dock is designed for serious B2B founders who are ready to approach the US market with structure, accountability, and expert guidance. Each cohort is capped at up to 20 founders to keep the experience focused and practical.</p>
-  <div class="criteria-grid">
-    <div class="criteria-box good">
-      <h4>✓ Great Fit</h4>
-      <ul>
-        <li>B2B SaaS, enterprise tech, AI, cybersecurity, deeptech, or tech-enabled startup</li>
-        <li>Early revenue, paying customers, pilots, or strong market validation</li>
-        <li>Targeting the US as a primary or expansion market</li>
-        <li>Founder, co-founder, or senior decision-maker leading US expansion</li>
-        <li>Committed to attending sessions and applying the work to your business</li>
-        <li>Open to feedback on your ICP, GTM, pitch, pricing, and US market plan</li>
-      </ul>
+<!-- ================= DELIVERABLES ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What You Walk Away With</span>
+      <h2>You leave with <span class="em">assets</span>, not just notes.</h2>
+      <p class="lede">By the end, you hold practical tools you can use immediately with customers, partners and investors.</p>
     </div>
-    <div class="criteria-box bad">
-      <h4>✗ Not Ready Yet</h4>
-      <ul>
-        <li>Still at idea stage with no customer validation yet</li>
-        <li>Pure B2C consumer products outside our current focus</li>
-        <li>Looking only for passive content, not hands-on application</li>
-        <li>Already operating primarily in the US market</li>
-        <li>Attending without authority to make GTM, sales, or expansion decisions</li>
-      </ul>
+
+    <div class="deliv">
+      <div class="deliv-item"><div class="deliv-n">1</div><div><h3>US Market Readiness Scorecard</h3><p>A clear view of where you stand and what to fix before entering.</p></div></div>
+      <div class="deliv-item"><div class="deliv-n">2</div><div><h3>ICP and Positioning Statement</h3><p>A sharp target buyer, use case, urgency and differentiated position.</p></div></div>
+      <div class="deliv-item"><div class="deliv-n">3</div><div><h3>90-Day US GTM Plan</h3><p>A focused roadmap for your first US moves: channels, outreach, metrics.</p></div></div>
+      <div class="deliv-item"><div class="deliv-n">4</div><div><h3>Legal and Ops Checklist</h3><p>Entity, contracts, compliance, IP, tax and onboarding readiness.</p></div></div>
+      <div class="deliv-item"><div class="deliv-n">5</div><div><h3>Pilot and Procurement Plan</h3><p>A structured way to design pilots and convert early conversations.</p></div></div>
+      <div class="deliv-item"><div class="deliv-n">6</div><div><h3>Investor One-Pager and Pitch</h3><p>A refined narrative, one-pager and 5-minute Demo Day pitch.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── INVESTMENT ── -->
-<section class="investment" id="investment">
-  <div class="section-tag">Investment</div>
-  <h2>One Startup Seat. Two Team Members. Full Program Access.</h2>
-  <p class="lead">The program fee covers access for up to two team members from the same startup, including all sessions, materials, async support, and Demo Day participation.</p>
-  <div class="invest-grid">
-    <div class="invest-card featured">
-      <h3>Startup Seat</h3>
-      <div class="price">$2,000 <span>/ startup</span></div>
-      <ul class="features">
-        <li>6 live 90-minute virtual sessions</li>
-        <li>Access for up to 2 team members from the same startup</li>
-        <li>Founder Workbook with practical frameworks</li>
-        <li>Access to all session decks and templates</li>
-        <li>Async support between sessions</li>
-        <li>Investor Demo Day participation</li>
-        <li>Alumni network access</li>
-      </ul>
+<!-- ================= FIT CHECK ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Fit Check</span>
+      <h2>Built for global founders <span class="em">ready to enter the US</span>.</h2>
+      <p class="lede">Each cohort is capped at 20 founders to keep it focused and hands-on. Here's who thrives here.</p>
+    </div>
+
+    <div class="fit">
+      <div class="card fit-col fit-yes">
+        <span class="pill green">Great fit</span>
+        <ul>
+          <li>B2B SaaS, enterprise tech, AI, cybersecurity, deeptech or tech-enabled</li>
+          <li>Early revenue, paying customers, pilots or strong validation</li>
+          <li>Targeting the US as a primary or expansion market</li>
+          <li>Founder or senior decision-maker leading US expansion</li>
+          <li>Committed to attending and applying the work</li>
+          <li>Open to feedback on ICP, GTM, pitch and pricing</li>
+        </ul>
+      </div>
+      <div class="card fit-col fit-no">
+        <span class="pill peach">Not ready yet</span>
+        <ul>
+          <li>Idea stage with no customer validation</li>
+          <li>Pure B2C consumer products outside our focus</li>
+          <li>Looking only for passive content, not application</li>
+          <li>Already operating primarily in the US</li>
+          <li>Attending without authority over GTM or expansion decisions</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── FAQ ── -->
-<section class="faq" id="faq">
-  <div class="section-tag">FAQ</div>
-  <h2>Common Questions Before You Apply</h2>
-  <div class="faq-list">
-    <div class="faq-item"><div class="faq-q">What timezone are sessions held in?</div><div class="faq-a">Sessions are typically scheduled in Pacific Time, with timing selected to support participation from multiple regions. Final session timings will be shared before the cohort begins.</div></div>
-    <div class="faq-item"><div class="faq-q">Do I need to be incorporated in the US already?</div><div class="faq-a">No. You do not need to be incorporated in the US before joining. One of the sessions will help you understand entity options, legal readiness, and when it makes sense to set up a US presence.</div></div>
-    <div class="faq-item"><div class="faq-q">How much time per week does this require?</div><div class="faq-a">Expect around 2–3 hours per week, including the live session weeks, homework, and applying the frameworks to your business.</div></div>
-    <div class="faq-item"><div class="faq-q">What happens if I miss a session?</div><div class="faq-a">Sessions will be recorded where possible, and materials will be shared. However, founders are encouraged to attend live to get the full value from mentor feedback and peer discussion.</div></div>
-    <div class="faq-item"><div class="faq-q">Is Demo Day only for investors?</div><div class="faq-a">Demo Day is designed to introduce founders to a curated audience of investors, angels, operators, and ecosystem partners.</div></div>
-    <div class="faq-item"><div class="faq-q">What industries do you accept?</div><div class="faq-a">We primarily accept B2B SaaS, enterprise tech, AI, cybersecurity, deeptech, and tech-enabled startups preparing to enter or expand in the US market.</div></div>
-    <div class="faq-item"><div class="faq-q">When is the application deadline?</div><div class="faq-a">Applications are reviewed on a rolling basis until the cohort is full. Since seats are limited to up to 20 startups, early applications are encouraged.</div></div>
-    <div class="faq-item"><div class="faq-q">Can two people from the same startup attend?</div><div class="faq-a">Yes. The $2,000 startup fee includes access for up to two team members from the same company.</div></div>
-    <div class="faq-item"><div class="faq-q">Is this program virtual or in person?</div><div class="faq-a">The core program is virtual, with six live 90-minute sessions over 12 weeks. Select in-person opportunities may be offered separately based on cohort interest and availability.</div></div>
-    <div class="faq-item"><div class="faq-q">Will Venture Dock help with introductions in the US?</div><div class="faq-a">Venture Dock gives founders access to relevant mentors, operators, investors, and ecosystem partners. Introductions may be facilitated where there is a clear fit, but the program does not guarantee customer, investor, or funding outcomes.</div></div>
+<!-- ================= INVESTMENT ================= -->
+<section class="sec" id="investment">
+  <div class="wrap">
+    <div class="inv">
+      <div>
+        <span class="eyebrow">Investment</span>
+        <h2>One seat. Two founders. <span class="em">Everything included</span>.</h2>
+        <p class="lede">Between the perk credits and the mistakes you won't make, the program pays for itself before Demo Day. It's less than the cost of a single week with a US market consultant, with a network and a Demo Day on top.</p>
+        <p class="footnote">↳ Up to $200K in credits included &nbsp;·&nbsp; ≤20 seats per cohort &nbsp;·&nbsp; rolling admissions</p>
+      </div>
+
+      <div class="card price-card">
+        <span class="pill green">Startup seat</span>
+        <div class="price">$2,000 <span class="per">/ startup</span></div>
+        <p style="font-size:13.5px;color:var(--body)">Access for up to two team members from the same company.</p>
+        <ul>
+          <li>6 live 90-minute virtual sessions</li>
+          <li>Access for up to 2 team members</li>
+          <li>Founder Workbook and frameworks</li>
+          <li>All session decks and templates</li>
+          <li>Async support between sessions</li>
+          <li>Investor Demo Day participation</li>
+          <li>Up to $200K in perk-partner credits</li>
+          <li>US virtual office address and community</li>
+          <li>Alumni network access</li>
+        </ul>
+        <a class="btn primary" href="https://venturedock.fillout.com/t/ftRJcD2d35us">Claim your seat →</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ── CTA BANNER ── -->
-<div class="cta-banner">
-  <h2>Apply to the US Market Readiness Program</h2>
-  <p>Applications are open for the next cohort. Seats are limited to up to 20 startups to keep the experience focused and high value.</p>
-  <a href="https://venturedock.fillout.com/t/ftRJcD2d35us" class="btn-midnight">Submit Your Application →</a>
-</div>
+<!-- ================= ECOSYSTEM ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Ecosystem</span>
+      <h2>Backed by an ecosystem that <span class="em">opens doors</span>.</h2>
+      <p class="lede">Investors, accelerators, corporates and service partners who help our founders land, launch and raise.</p>
+    </div>
 
-<!-- ── FOOTER ── -->
+    <div class="logos">
+      <div class="logo-tile"><img src="assets/ecosystem/nasscom.png" alt="nasscom" loading="lazy"></div>
+      <div class="logo-tile"><img src="assets/ecosystem/enterprise-singapore.png" alt="Enterprise Singapore" loading="lazy"></div>
+      <div class="logo-tile"><img src="assets/ecosystem/hkstp.png" alt="Hong Kong Science and Technology Parks" loading="lazy"></div>
+      <div class="logo-tile"><img src="assets/ecosystem/startup-island-taiwan.png" alt="Startup Island Taiwan" loading="lazy"></div>
+      <div class="logo-tile"><img src="assets/ecosystem/nordic-innovation.png" alt="Nordic Innovation" loading="lazy"></div>
+      <div class="logo-tile"><img src="assets/ecosystem/icta.png" alt="ICTA" loading="lazy"></div>
+      <div class="logo-tile"><img src="assets/ecosystem/28digital.png" alt="28DIGITAL" loading="lazy"></div>
+      <div class="logo-tile"><img src="assets/ecosystem/partner-unidentified.png" alt="Ecosystem partner" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">From The Cohorts</span>
+      <h2>Founders who've already <span class="em">made the crossing</span>.</h2>
+      <p class="lede">Moments from past cohorts: sessions, Demo Days and the community that keeps going long after.</p>
+    </div>
+
+    <div class="gwall">
+      <figure class="gfig">
+        <img src="assets/cohort/demo-day-latam-group.jpg" alt="Demo Day, LATAM cohort" loading="lazy" width="1400" height="933">
+        <figcaption>Demo Day, LATAM cohort</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/cohort-group-latam.jpg" alt="LATAM cohort at the Dock" loading="lazy" width="1400" height="1050">
+        <figcaption>LATAM cohort at the Dock</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/founder-pitch-cybersecurity.jpg" alt="Founder pitch, Cybersecurity cohort" loading="lazy" width="1400" height="933">
+        <figcaption>Founder pitch, Cybersecurity cohort</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/session-fireside.jpg" alt="Session in progress" loading="lazy" width="1400" height="933">
+        <figcaption>Session in progress</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/demo-day-orange-planet.jpg" alt="Demo Day, Orange Planet cohort" loading="lazy" width="1400" height="1050">
+        <figcaption>Demo Day, Orange Planet cohort</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/networking-01.jpg" alt="Networking" loading="lazy" width="1400" height="933">
+        <figcaption>Networking</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/founder-pitch-latam.jpg" alt="Founder pitch, LATAM cohort" loading="lazy" width="1400" height="933">
+        <figcaption>Founder pitch, LATAM cohort</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/demo-day-latam-celebration.jpg" alt="Demo Day, LATAM cohort" loading="lazy" width="1400" height="933">
+        <figcaption>Demo Day, LATAM cohort</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/session-conversation.jpg" alt="Session in progress" loading="lazy" width="1400" height="933">
+        <figcaption>Session in progress</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/founder-pitch-orange-planet.jpg" alt="Founder pitch, Orange Planet cohort" loading="lazy" width="1400" height="933">
+        <figcaption>Founder pitch, Orange Planet cohort</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/networking-02.jpg" alt="Networking" loading="lazy" width="1400" height="788">
+        <figcaption>Networking</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/cohort-group-cybersecurity.jpg" alt="Cybersecurity cohort" loading="lazy" width="800" height="533">
+        <figcaption>Cybersecurity cohort</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/session-audience.jpg" alt="Session in progress" loading="lazy" width="800" height="533">
+        <figcaption>Session in progress</figcaption>
+      </figure>
+      <figure class="gfig">
+        <img src="assets/cohort/networking-03.jpg" alt="Networking" loading="lazy" width="1400" height="933">
+        <figcaption>Networking</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions <span class="em">before you apply</span>.</h2>
+    </div>
+
+    <div class="faq-list">
+      <details><summary>What timezone are sessions held in?</summary><p>Sessions are typically scheduled in Pacific Time, chosen to support participation across multiple regions. Final timings are shared before the cohort begins.</p></details>
+      <details><summary>Do I need to be incorporated in the US already?</summary><p>No. A dedicated session helps you understand entity options, legal readiness and exactly when it makes sense to set up a US presence.</p></details>
+      <details><summary>How much time per week does this require?</summary><p>Around 2 to 3 hours per week, including live sessions, homework, and applying the frameworks to your business.</p></details>
+      <details><summary>What happens if I miss a session?</summary><p>Sessions are recorded where possible and materials are shared, but attending live gets you the full value of mentor feedback and peer discussion.</p></details>
+      <details><summary>Is Demo Day only for investors?</summary><p>Demo Day introduces you to a curated audience of investors, angels, operators and ecosystem partners we invite for the cohort.</p></details>
+      <details><summary>Are the perk credits really included?</summary><p>Yes. Perk-partner credits unlock when you join, so you can start deploying value from home before you land. The exact stack is finalized per cohort and reaches up to $200,000 in total value.</p></details>
+      <details><summary>When is the application deadline?</summary><p>Applications are reviewed on a rolling basis until the cohort fills. With seats capped at 20, early applications are strongly encouraged.</p></details>
+      <details><summary>Will Venture Dock make introductions in the US?</summary><p>You get access to relevant mentors, operators, investors and ecosystem partners. Introductions are facilitated where there's a clear fit, though outcomes aren't guaranteed.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="final">
+      <span class="eyebrow">The Next Cohort Is Filling</span>
+      <h2>Land in the US already known, already backed, <span class="em">already moving</span>.</h2>
+      <p>Seats are capped at 20 to keep every cohort focused and high-value. Apply now to hold your place.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://venturedock.fillout.com/t/ftRJcD2d35us">Apply to the program →</a>
+        <a class="btn ghost" href="#program">Review the program</a>
+      </div>
+      <div class="strip">◇ Rolling admissions · ≤20 seats · up to $200K in perks</div>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <div class="footer-logo">
-    <img src="assets/logo-white.png" alt="Venture Dock">
-    <p style="margin-top:.5rem">US Market Readiness Program for Global Founders</p>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="wordmark"><span class="lite">venture</span><span class="bold">dock</span></div>
+        <div class="tag">US Market Access Program for Global Founders</div>
+      </div>
+      <div class="foot-links">
+        <a href="#program">Program</a>
+          <a href="#investment">Investment</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://venturedock.fillout.com/t/ftRJcD2d35us">Apply</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 Venture Dock. All rights reserved.</div>
   </div>
-  <p>© 2026 Venture Dock. All rights reserved.</p>
 </footer>
 
 <script>
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => {
-      const item = q.parentElement;
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
+  (function(){
+    var btn = document.getElementById('menuBtn');
+    var menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', function(){
+      var open = menu.classList.toggle('on');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-  });
+    menu.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){ menu.classList.remove('on'); btn.setAttribute('aria-expanded','false'); }
+    });
+  })();
 </script>
 </body>
 </html>
